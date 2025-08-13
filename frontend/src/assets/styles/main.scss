@@ -1,0 +1,340 @@
+// Variables basées sur l'identité Auvergne-Rhône-Alpes
+$primary-blue: #0074C7;
+$secondary-blue: #00497C;
+$accent-orange: #CD2C2E;
+$success-green: #82B864;
+$warning-yellow: #FFC107;
+$light-gray: #F1F8FC;
+$medium-gray: #384050;
+$dark-gray: #343A40;
+$white: #FFFFFF;
+
+// Typography
+$font-family-primary: 'Graphik', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-xxl: 1.5rem;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3
+);
+
+// Border radius
+$border-radius: 0.375rem;
+$border-radius-lg: 0.5rem;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $dark-gray;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Accessibility
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: $primary-blue;
+  color: $white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: $border-radius;
+
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Focus styles for accessibility
+:focus {
+  outline: 2px solid $accent-orange;
+  outline-offset: 2px;
+}
+
+// App layout
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+// Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacer;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 0 $spacer * 1.5;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 $spacer * 2;
+  }
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: $font-family-primary;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  &:focus {
+    outline: 2px solid $accent-orange;
+    outline-offset: 2px;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-blue;
+  color: $white;
+
+  &:hover {
+    background-color: $secondary-blue;
+    color: $white;
+  }
+}
+
+.btn-secondary {
+  background-color: $accent-orange;
+  color: $white;
+
+/*   &:hover {
+    background-color: darken($accent-orange, 10%);
+    color: $white;
+  } */
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: $primary-blue;
+  border: 2px solid $primary-blue;
+
+  &:hover {
+    background-color: $primary-blue;
+    color: $white;
+  }
+}
+
+// Cards
+.card {
+  background-color: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
+  }
+}
+
+.card-body {
+  padding: $spacer * 1.5;
+}
+
+// Stars rating
+.stars {
+  display: flex;
+  gap: 0.25rem;
+  color: $warning-yellow;
+  font-size: 1.1rem;
+}
+
+.star {
+  &.filled {
+    color: $warning-yellow;
+  }
+  &.empty {
+    color: $medium-gray;
+  }
+}
+
+// Form styles
+.form-group {
+  margin-bottom: $spacer * 1.5;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: $font-weight-medium;
+  color: $dark-gray;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: $font-size-base;
+  font-family: $font-family-primary;
+  line-height: 1.5;
+  color: $dark-gray;
+  background-color: $white;
+  border: 1px solid #ced4da;
+  border-radius: $border-radius;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    border-color: $primary-blue;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+  }
+
+  &::placeholder {
+    color: $medium-gray;
+  }
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+// Utility classes
+/* .text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: $spacer * 0.25; }
+.mb-2 { margin-bottom: $spacer * 0.5; }
+.mb-3 { margin-bottom: $spacer; }
+.mb-4 { margin-bottom: $spacer * 1.5; }
+.mb-5 { margin-bottom: $spacer * 3; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: $spacer * 0.25; }
+.mt-2 { margin-top: $spacer * 0.5; }
+.mt-3 { margin-top: $spacer; }
+.mt-4 { margin-top: $spacer * 1.5; }
+.mt-5 { margin-top: $spacer * 3; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: $spacer * 0.25; }
+.p-2 { padding: $spacer * 0.5; }
+.p-3 { padding: $spacer; }
+.p-4 { padding: $spacer * 1.5; }
+.p-5 { padding: $spacer * 3; }
+
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; } */
+
+// Responsive utilities
+@media (min-width: $breakpoint-sm) {
+  .d-sm-none { display: none; }
+  .d-sm-block { display: block; }
+  .d-sm-flex { display: flex; }
+}
+
+@media (min-width: $breakpoint-md) {
+  .d-md-none { display: none; }
+  .d-md-block { display: block; }
+  .d-md-flex { display: flex; }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .d-lg-none { display: none; }
+  .d-lg-block { display: block; }
+  .d-lg-flex { display: flex; }
+}
+
+// Section styles
+.section {
+  padding: 3rem 0;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 4rem 0;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 5rem 0;
+  }
+}
+
+.section-title {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $dark-gray;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+}
+
+// Import component styles
+@import 'header';
+@import 'footer';
+@import 'hero';
+@import 'steps';
+@import 'artisan-card';
+@import 'artisan-profile';
+@import 'search-bar';
+@import 'home';
+@import 'category-page';
+@import 'not-found';

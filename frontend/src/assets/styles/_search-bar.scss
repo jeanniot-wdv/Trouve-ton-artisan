@@ -1,0 +1,282 @@
+// Search Bar styles
+.search-bar {
+  position: relative;
+  width: 100%;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  border: 2px solid #e9ecef;
+  border-radius: $border-radius-lg;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &:focus-within {
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+  }
+
+/*   &:hover {
+    border-color: darken(#e9ecef, 10%);
+  } */
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  border: none;
+  background: transparent;
+  font-size: $font-size-base;
+  font-family: $font-family-primary;
+  color: $dark-gray;
+  outline: none;
+
+  &::placeholder {
+    color: $medium-gray;
+    opacity: 1;
+  }
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  // Remove default search input styling
+  &[type="search"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+.search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 0.25rem;
+  background: none;
+  border: none;
+  border-radius: $border-radius;
+  color: $medium-gray;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba($medium-gray, 0.1);
+    color: $dark-gray;
+  }
+
+  &:focus {
+    outline: 2px solid $accent-orange;
+    outline-offset: 1px;
+  }
+}
+
+.search-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.25rem;
+  background-color: $primary-blue;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 56px;
+
+  &:hover:not(:disabled) {
+    background-color: $secondary-blue;
+  }
+
+  &:focus {
+    outline: 2px solid $accent-orange;
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    background-color: $medium-gray;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.search-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Suggestions dropdown
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  border: 1px solid #e9ecef;
+  border-top: none;
+  border-radius: 0 0 $border-radius-lg $border-radius-lg;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba($medium-gray, 0.1);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover,
+  &.active {
+    background-color: rgba($primary-blue, 0.1);
+  }
+
+  &:focus {
+    outline: 2px solid $accent-orange;
+    outline-offset: -2px;
+  }
+}
+
+.suggestion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.suggestion-name {
+  font-weight: $font-weight-medium;
+  color: $dark-gray;
+  font-size: $font-size-base;
+}
+
+.suggestion-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: $medium-gray;
+}
+
+.suggestion-specialty {
+  &::after {
+    content: "•";
+    margin-left: 0.5rem;
+    color: $medium-gray;
+  }
+}
+
+.suggestion-location {
+  // No additional styles needed
+}
+
+// Responsive design
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .search-input {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .search-submit {
+    padding: 0.75rem 1rem;
+    min-width: 48px;
+  }
+
+  .suggestion-details {
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .suggestion-specialty::after {
+    display: none;
+  }
+}
+
+// Accessibility improvements
+@media (prefers-reduced-motion: reduce) {
+  .search-input-container,
+  .search-clear,
+  .search-submit,
+  .suggestion-item {
+    transition: none;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .search-input-container {
+    border-width: 2px;
+    border-color: $dark-gray;
+
+    &:focus-within {
+      border-color: $primary-blue;
+    }
+  }
+
+  .search-suggestions {
+    border-color: $dark-gray;
+  }
+
+  .suggestion-item {
+    border-bottom-color: $medium-gray;
+
+    &:hover,
+    &.active {
+      background-color: rgba($primary-blue, 0.2);
+      border: 1px solid $primary-blue;
+    }
+  }
+}
+
+// Dark mode support (for future implementation)
+@media (prefers-color-scheme: dark) {
+  .search-input-container {
+    background-color: #2d3748;
+    border-color: #4a5568;
+  }
+
+  .search-input {
+    color: #e2e8f0;
+
+    &::placeholder {
+      color: #a0aec0;
+    }
+  }
+
+  .search-suggestions {
+    background-color: #2d3748;
+    border-color: #4a5568;
+  }
+
+  .suggestion-item {
+    border-bottom-color: rgba(#a0aec0, 0.2);
+
+    &:hover,
+    &.active {
+      background-color: rgba($primary-blue, 0.2);
+    }
+  }
+
+  .suggestion-name {
+    color: #e2e8f0;
+  }
+
+  .suggestion-details {
+    color: #a0aec0;
+  }
+}

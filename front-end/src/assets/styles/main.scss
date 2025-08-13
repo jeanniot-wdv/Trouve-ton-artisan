@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/Graphik-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/Graphik-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/Graphik-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/Graphik-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+// Variables basées sur l'identité Auvergne-Rhône-Alpes
+$primary-blue: #0074C7;
+$secondary-blue: #00497C;
+$dark-blue: #384050;
+$light-blue: #F1F8FC;
+$accent-red: #CD2C2E;
+$green: #82B864;
+
+body {
+  font-family: 'Graphik', sans-serif  !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    rgba($secondary-blue, 0.8) 0%,
+    rgba($primary-blue, 0.8) 60%,
+    rgba($green, 0.6) 100%
+  );
+  height: calc(100vh - 88px);
+  margin-top: 88px;
+}
+
+#best-artisan {
+  background-color: $light-blue;
+  padding: 2rem 0;
+}
+
+#best-artisan h2 {
+  color: $secondary-blue;
+}
+
+#find-artisan {
+  background-color: $green;
+  color: white;
+  padding: 2rem 0;
+}
