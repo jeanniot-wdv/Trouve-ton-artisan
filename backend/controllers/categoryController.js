@@ -1,10 +1,25 @@
 const { Category, Speciality, Artisan } = require('../models');
+const { Sequelize } = require('sequelize');
 const { Op } = require('sequelize');
 
-// Récupérer toutes les catégories avec leurs spécialités
+// Récupérer toutes les catégories avec leurs spécialités et le nombre d'artisans
 const getAllCategories = async (req, res, next) => {
   try {
     const categories = await Category.findAll({
+      attributes: {
+        include: [
+          [
+            Sequelize.literal(`(
+              SELECT COUNT(*)
+              FROM artisans a
+              INNER JOIN specialites s ON a.id_specialite = s.id_specialite
+              WHERE s.id_categorie = Category.id_categorie
+              AND a.actif = true
+            )`),
+            'nb_artisans'
+          ]
+        ]
+      },
       include: [
         {
           model: Speciality,
@@ -64,6 +79,10 @@ const getCategoryBySlug = async (req, res, next) => {
       nombre_artisans: specialite.artisans ? specialite.artisans.length : 0,
       artisans: undefined // Supprimer les données d'artisans, on ne veut que le count
     }));
+
+    // Compter le nombre total d'artisans pour cette catégorie
+    const totalArtisans = categoryData.specialites.reduce((total, spec) => total + spec.nombre_artisans, 0);
+    categoryData.nb_artisans = totalArtisans;
 
     res.json({
       success: true,

@@ -1,0 +1,148 @@
+// assets/styles/home.scss
+@use './variables' as *;
+
+/* ===== SECTION HERO ===== */
+.hero-section {
+  background: linear-gradient(135deg, rgba($secondary-blue, 0.8) 0%, rgba($primary-blue, 0.8) 40%, rgba($accent-red, 0.7) 100%);
+  min-height: calc(100vh - 85px);
+  margin-top: 85px;
+}
+
+/* ===== BARRE DE RECHERCHE ===== */
+.search-group {
+  max-width: 500px;
+}
+
+.search-input {
+  border-radius: 25px 0 0 25px;
+  border: none;
+}
+
+.search-btn {
+  border-radius: 0 25px 25px 0;
+  background-color: $green;
+  border-color: $green;
+  
+  &:hover {
+    background-color: darken($green, 10%);
+    border-color: darken($green, 10%);
+  }
+}
+
+/* ===== CARTES CATÉGORIES ===== */
+.category-card {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.4) !important;
+  }
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 72, 124, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== BOUTON CTA HERO ===== */
+.hero-cta-btn {
+  border-radius: 25px;
+  border-width: 2px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ===== SECTION ARTISANS ===== */
+.artisans-section {
+  background-color: $light-blue;
+  
+  .section-title {
+    color: $secondary-blue;
+  }
+  
+  .loading-spinner {
+    color: $primary-blue;
+  }
+  
+  .no-artisans {
+    border-color: #dee2e6 !important;
+  }
+}
+
+/* ===== SECTION CTA ===== */
+.cta-section {
+  background: linear-gradient(135deg, $green 0%, $primary-blue 100%);
+}
+
+.cta-btn {
+  border-radius: 25px;
+  border-width: 2px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ===== SECTION CONFIANCE ===== */
+.trust-title {
+  color: $dark-blue;
+}
+
+.trust-card {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.trust-card-title {
+  color: $dark-blue;
+}
+
+.trust-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &-primary { background-color: $primary-blue; }
+  &-success { background-color: $green; }
+  &-danger { background-color: $accent-red; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: calc(100vh - 88px);
+    padding: 2rem 0;
+  }
+  
+  .search-group {
+    max-width: 100% !important;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    
+    .btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}

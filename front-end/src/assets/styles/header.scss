@@ -1,0 +1,35 @@
+// assets/styles/header.scss
+@use './variables' as *;
+
+/* ===== HEADER STYLES ===== */
+.navbar {
+  .nav-link {
+    color: $dark-blue !important;
+    transition: color 0.3s ease;
+    
+    &:hover, &.active {
+      color: $primary-blue !important;
+    }
+  }
+  
+  .dropdown-menu {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-item:hover {
+    background-color: $light-blue;
+    color: $primary-blue;
+  }
+  
+  .btn-outline-dark {
+    border-color: $dark-blue;
+    color: $dark-blue;
+    
+    &:hover {
+      background-color: $primary-blue;
+      border-color: $primary-blue;
+    }
+  }
+}

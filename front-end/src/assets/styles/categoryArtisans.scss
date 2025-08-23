@@ -1,0 +1,37 @@
+// assets/styles/categoryArtisans.scss
+@use './variables' as *;
+
+/* ===== HEADER CATÉGORIE ===== */
+.category-header {
+  background: linear-gradient(135deg, rgba($secondary-blue, 0.9) 0%, rgba($primary-blue, 0.8) 100%);
+  margin-top: 85px;
+}
+
+.category-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.category-main-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ===== ÉTAT VIDE ===== */
+.no-results {
+  padding: 3rem 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .category-main-icon {
+    width: 60px;
+    height: 60px;
+  }
+}

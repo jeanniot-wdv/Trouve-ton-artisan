@@ -1,3 +1,20 @@
+// assets/styles/main.scss
+
+// Import des variables et utilitaires
+@use './variables' as *;
+
+// Import des composants principaux
+@import './header';
+@import './footer';
+@import './home';
+@import './categories';
+@import './categoryArtisans';
+
+// Import des composants de cartes
+@import '../../components/cards/artisan.scss';
+@import '../../components/cards/cardStep.scss';
+
+// Import des polices
 @font-face {
   font-family: 'Graphik';
   src: url('/fonts/Graphik-Regular.woff2') format('woff2');
@@ -25,44 +42,9 @@
   font-style: normal;
 }
 
-// Variables basées sur l'identité Auvergne-Rhône-Alpes
-$primary-blue: #0074C7;
-$secondary-blue: #00497C;
-$dark-blue: #384050;
-$light-blue: #F1F8FC;
-$accent-red: #CD2C2E;
-$green: #82B864;
-
+// Styles globaux
 body {
-  font-family: 'Graphik', sans-serif  !important;
-}
-
-a {
-  text-decoration: none;
-}
-
-.hero {
-  background: linear-gradient(
-    135deg,
-    rgba($secondary-blue, 0.8) 0%,
-    rgba($primary-blue, 0.8) 60%,
-    rgba($green, 0.6) 100%
-  );
-  height: calc(100vh - 88px);
-  margin-top: 88px;
-}
-
-#best-artisan {
-  background-color: $light-blue;
-  padding: 2rem 0;
-}
-
-#best-artisan h2 {
-  color: $secondary-blue;
-}
-
-#find-artisan {
-  background-color: $green;
-  color: white;
-  padding: 2rem 0;
+  font-family: 'Graphik', sans-serif !important;
+  font-weight: 300;
+  line-height: 1.6;
 }

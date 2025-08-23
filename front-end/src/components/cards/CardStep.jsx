@@ -1,6 +1,4 @@
 // components/CardStep.jsx
-import React from 'react';
-import './cardStep.scss';
 
 const CardStep = ({ 
   stepNumber, 
