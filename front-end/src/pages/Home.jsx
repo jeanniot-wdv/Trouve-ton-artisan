@@ -6,6 +6,8 @@ import useCategories from '../hooks/useCategories';
 
 import ArtisanCard from '../components/cards/ArtisanCard';
 import CardStep from '../components/cards/CardStep';
+import CardConfiance from '../components/cards/CardConfiance';
+import Cta from '../components/common/Cta';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -114,7 +116,7 @@ const Home = () => {
               stepNumber={1}
               title="Choisir la catégorie d'artisanat dans le menu"
               description="Dans le menu en haut de la page, choisissez la catégorie d'artisanat que vous recherchez afin de pouvoir sélectionner uniquement les artisans spécialisés dans ce domaine."
-              imageSrc="https://placehold.co/300x200/0074C7/ffffff"
+              imageSrc="../../src/assets/images/1-categorie.png"
               imageAlt="Illustration du choix de catégorie"
               reverse={false}
             />
@@ -123,7 +125,7 @@ const Home = () => {
               stepNumber={2}
               title="Choisir un artisan"
               description="Sélectionnez l'artisan de la liste qui vous a le plus séduit. Référez-vous aux informations de son profil pour faire votre choix (avis, spécialité, localisation)."
-              imageSrc="https://placehold.co/300x200/00497C/ffffff"
+              imageSrc="../../src/assets/images/2-artisan.png"
               imageAlt="Illustration du choix d'artisan"
               reverse={true}
             />
@@ -132,7 +134,7 @@ const Home = () => {
               stepNumber={3}
               title="Le contacter via le formulaire de contact"
               description="Cliquez sur l'artisan que vous avez choisi pour avoir des informations supplémentaires sur ce dernier. Contactez-le via le formulaire de contact."
-              imageSrc="https://placehold.co/300x200/82B864/ffffff"
+              imageSrc="../../src/assets/images/3-contact.png"
               imageAlt="Illustration du formulaire de contact"
               reverse={false}
             />
@@ -141,7 +143,7 @@ const Home = () => {
               stepNumber={4}
               title="Une réponse sera apportée sous 48h"
               description="Une fois votre message envoyé, l'artisan s'engage à vous répondre dans les 48 heures."
-              imageSrc="https://placehold.co/300x200/CD2C2E/ffffff"
+              imageSrc="../../src/assets/images/4-reponse.png"
               imageAlt="Illustration de la réponse sous 48h"
               reverse={true}
             />
@@ -200,86 +202,32 @@ const Home = () => {
       </section>
 
       {/* Section Call to Action */}
-      <section id="find-artisan" className="cta-section py-5 text-white">
-        <div className="container text-center">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <h2 className="display-5 fw-bold mb-4">
-                Prêt à trouver votre artisan ?
-              </h2>
-              <p className="lead mb-5">
-                Explorez nos différentes catégories et trouvez l'artisan qui 
-                répondra parfaitement à vos besoins.
-              </p>
-              <div className="d-flex flex-wrap justify-content-center gap-3 cta-buttons">
-                <Link 
-                  to="/artisans" 
-                  className="btn btn-outline-light btn-lg px-4 fw-semibold cta-btn">
-                  Tous les artisans
-                </Link>
-                <Link 
-                  to="/categories" 
-                  className="btn btn-outline-light btn-lg px-4 fw-semibold cta-btn">
-                  Toutes les catégories
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Cta title="Prêt à trouver votre artisan ?"
+          textButtonLeft="Tous les artisans" linkToLeft="artisans" 
+          textButtonRight="Toutes les catégories" linkToRight="categories"
+          description="Explorez nos différentes catégories et trouvez l'artisan qui 
+                    répondra parfaitement à vos besoins."/>
 
       {/* Section Une plateforme de confiance */}
       <section className="py-5 bg-light">
         <div className="container">
-          <div className="text-center mb-5">
-            <h2 className="display-5 fw-bold mb-3 trust-title">
-              Une plateforme de confiance
-            </h2>
-          </div>
-
+          <h2 className="display-5 text-center fw-bold mb-3 trust-title mb-5">Une plateforme de confiance</h2>
           <div className="row g-4 justify-content-center">
-            <div className="col-lg-4 col-md-6">
-              <div className="card h-100 border-0 shadow-sm text-center trust-card">
-                <div className="card-body p-4">
-                  <div className="trust-icon trust-icon-primary mb-3">
-                    <i className="bi bi-patch-check fs-1 text-white"></i>
-                  </div>
-                  <h4 className="fw-bold mb-3 trust-card-title">Artisans vérifiés</h4>
-                  <p className="text-muted">
-                    Tous nos artisans sont vérifiés et certifiés par la région Auvergne-Rhône-Alpes.
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            <div className="col-lg-4 col-md-6">
-              <div className="card h-100 border-0 shadow-sm text-center trust-card">
-                <div className="card-body p-4">
-                  <div className="trust-icon trust-icon-success mb-3">
-                    <i className="bi bi-clock fs-1 text-white"></i>
-                  </div>
-                  <h4 className="fw-bold mb-3 trust-card-title">Réponse garantie</h4>
-                  <p className="text-muted">
-                    Réponse sous 48h maximum pour tous vos projets et demandes de devis.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6">
-              <div className="card h-100 border-0 shadow-sm text-center trust-card">
-                <div className="card-body p-4">
-                  <div className="trust-icon trust-icon-danger mb-3">
-                    <i className="bi bi-geo-alt fs-1 text-white"></i>
-                  </div>
-                  <h4 className="fw-bold mb-3 trust-card-title">Artisans locaux</h4>
-                  <p className="text-muted">
-                    Trouvez des artisans près de chez vous dans toute la région Auvergne-Rhône-Alpes.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <CardConfiance icon="patch-check" iconColor="primary" title="Artisans vérifiés"
+              description="Tous nos artisans sont vérifiés et certifiés 
+                          par la région Auvergne-Rhône-Alpes."
+            />
+            <CardConfiance icon="clock" iconColor="success" title="Réponse garantie"
+              description="Réponse sous 48h maximum pour tous vos projets 
+                          et demandes de devis."
+            />
+            <CardConfiance icon="geo-alt" iconColor="danger" title="Artisans locaux"
+              description="Trouvez des artisans près de chez vous dans 
+                          toute la région Auvergne-Rhône-Alpes."
+            />
           </div>
+
         </div>
       </section>
     </>

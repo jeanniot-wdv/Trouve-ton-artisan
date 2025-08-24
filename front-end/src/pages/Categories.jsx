@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useCategories from '../hooks/useCategories';
+import Cta from '../components/common/Cta';
 
 const Categories = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -111,7 +112,6 @@ const Categories = () => {
                                   {category.nom_categorie}
                                 </h4>
                                 <p className="category-count mb-0">
-                                  {console.log(category)}
                                   {category.nb_artisans || 0} artisan(s)
                                 </p>
                               </div>
@@ -179,35 +179,11 @@ const Categories = () => {
       </section>
 
       {/* Section Call to Action */}
-      <section className="categories-cta py-5 text-white">
-        <div className="container text-center">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <h2 className="display-5 fw-bold mb-4">
-                Vous ne trouvez pas ce que vous cherchez ?
-              </h2>
-              <p className="lead mb-5">
-                Contactez-nous directement ou explorez tous nos artisans 
-                pour trouver le professionnel parfait pour votre projet.
-              </p>
-              <div className="d-flex flex-wrap justify-content-center gap-3 cta-buttons">
-                <Link 
-                  to="/artisans" 
-                  className="btn btn-outline-light btn-lg px-4 fw-semibold cta-btn"
-                >
-                  Tous les artisans
-                </Link>
-                <Link 
-                  to="/contact" 
-                  className="btn btn-outline-light btn-lg px-4 fw-semibold cta-btn"
-                >
-                  Nous contacter
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Cta title="Vous ne trouvez pas ce que vous cherchez ?"
+          textButtonLeft="Tous les artisans" linkToLeft="artisans" 
+          textButtonRight="Nous contacter" linkToRight="contact"
+          description="Contactez-nous directement ou explorez tous nos artisans 
+                pour trouver le professionnel parfait pour votre projet."/>
     </>
   );
 };
