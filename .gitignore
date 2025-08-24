@@ -1,0 +1,6 @@
+# Ignore common files at the root
+*.log
+.DS_Store
+Thumbs.db
+
+front-end/.vite/deps/

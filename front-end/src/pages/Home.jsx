@@ -9,6 +9,7 @@ import CardStep from '../components/cards/CardStep';
 import CardConfiance from '../components/cards/CardConfiance';
 import Cta from '../components/common/Cta';
 
+
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { categories, loading: categoriesLoading, getCategoryIcon } = useCategories(4);
