@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import useArtisansDuMois from '../hooks/useArtisansDuMois';
 import useCategories from '../hooks/useCategories';
 
+import Hero from '../components/partial/Hero';
+import HeroSearchBar from '../components/common/HeroSearchBar';
 import ArtisanCard from '../components/cards/ArtisanCard';
 import CardStep from '../components/cards/CardStep';
 import CardConfiance from '../components/cards/CardConfiance';
@@ -15,90 +17,57 @@ const Home = () => {
   const { categories, loading: categoriesLoading, getCategoryIcon } = useCategories(4);
   const { artisans, loading, error } = useArtisansDuMois(3);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
-    }
-  };
-
   return (
     <>
       {/* Section Hero */}
-      <section className="hero-section container-fluid text-center text-white d-flex align-items-center">
-        <div className="container px-3 py-4">
-          <div className="row justify-content-center">
-            <div className="col-lg-9">
-              <h1 className="display-4 fw-bold mb-4">
-                Découvrez les artisans de votre région
-              </h1>
-              <p className="lead mb-4">
-                Trouvez facilement un artisan qualifié en Auvergne-Rhône-Alpes. 
-                Contactez-les directement et obtenez une réponse sous 48h.
-              </p>
-
-              <form onSubmit={handleSearch} className="hero-search mb-4">
-                <div className="input-group mx-auto search-group">
-                  <input 
-                    type="text"
-                    className="form-control form-control-lg search-input" 
-                    placeholder="Trouver un artisan par nom" 
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                  <button 
-                    className="btn btn-lg px-4 text-white fw-semibold search-btn" 
-                    type="submit"
-                  >
-                    Rechercher
-                  </button>
-                </div>
-              </form>
+      <Hero 
+        title="Découvrez les artisans de votre région"
+        description="Trouvez facilement un artisan qualifié en Auvergne-Rhône-Alpes. 
+          Contactez-les directement et obtenez une réponse sous 48h."
+      >
+        {/* Searchbar spécifique à la Home */}
+        <HeroSearchBar />
               
-              <p className="mb-4 fs-6">Ou explorez par catégorie ci-dessous</p>
-              
-              {/* Cartes de catégories */}
-              <div className="row g-3 justify-content-center mb-4">
-                {categoriesLoading ? (
-                  <div className="col-12">
-                    <div className="spinner-border text-light" role="status">
-                      <span className="visually-hidden">Chargement des catégories...</span>
+        <p className="mb-4 fs-6">Ou explorez par catégorie ci-dessous</p>
+        
+        {/* Cartes de catégories */}
+        <div className="row g-3 justify-content-center mb-4">
+          {categoriesLoading ? (
+            <div className="col-12">
+              <div className="spinner-border text-light" role="status">
+                <span className="visually-hidden">Chargement des catégories...</span>
+              </div>
+            </div>
+          ) : (
+            categories.map((category) => (
+              <div key={category.id_categorie} className="col-6 col-md-3">
+                <Link 
+                  to={`/categories/${category.slug_categorie}`}
+                  className="text-decoration-none">
+                  <div className="card h-100 border-0 shadow-sm category-card">
+                    <div className="card-body text-center p-3">
+                      <div className="category-icon mx-auto mb-3">
+                        <i className={`bi ${getCategoryIcon(category.nom_categorie)} fs-4 text-white`}></i>
+                      </div>
+                      <h6 className="card-title mb-2 fs-6 fw-semibold text-white">
+                        {category.nom_categorie}
+                      </h6>
+                      <p className="card-text small text-white opacity-75">
+                        Voir les artisans
+                      </p>
                     </div>
                   </div>
-                ) : (
-                  categories.map((category) => (
-                    <div key={category.id_categorie} className="col-6 col-md-3">
-                      <Link 
-                        to={`/categories/${category.slug_categorie}`}
-                        className="text-decoration-none">
-                        <div className="card h-100 border-0 shadow-sm category-card">
-                          <div className="card-body text-center p-3">
-                            <div className="category-icon mx-auto mb-3">
-                              <i className={`bi ${getCategoryIcon(category.nom_categorie)} fs-4 text-white`}></i>
-                            </div>
-                            <h6 className="card-title mb-2 fs-6 fw-semibold text-white">
-                              {category.nom_categorie}
-                            </h6>
-                            <p className="card-text small text-white opacity-75">
-                              Voir les artisans
-                            </p>
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  ))
-                )}
+                </Link>
               </div>
-
-              <button 
-                className="btn btn-outline-light btn-lg px-4 fw-semibold hero-cta-btn"
-                onClick={() => document.getElementById('best-artisan')?.scrollIntoView(0, { behavior: 'smooth' })}>
-                Les artisans du mois
-              </button>
-            </div>
-          </div>
+            ))
+          )}
         </div>
-      </section>
+        <button 
+          className="btn btn-outline-light btn-lg px-4 fw-semibold hero-cta-btn"
+          onClick={() => document.getElementById('best-artisan')?.scrollIntoView(0, { behavior: 'smooth' })}>
+          Les artisans du mois
+        </button>
+      </Hero>
 
       {/* Section Comment ça marche */}
       <section id="comment-ca-marche" className="container py-5">

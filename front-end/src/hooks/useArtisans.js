@@ -19,6 +19,7 @@ const useArtisans = (initPage = 1, limit = 12) => {
       if (response.success) {
         setArtisans(response.data.artisans || []);
         setPagination(response.data.pagination || null);
+        window.scrollTo(0, 0);
       } else {
         throw new Error(response.message || 'Erreur lors du chargement des artisans');
       }
