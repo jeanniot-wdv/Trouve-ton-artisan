@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import useCategories from '../hooks/useCategories';
 import Cta from '../components/common/Cta';
 
+import Hero from '../components/partial/Hero';
+import SearchBar from '../components/partial/SearchBar';
+
 const Categories = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { categories, loading, error, getCategoryIcon } = useCategories();
@@ -25,37 +28,16 @@ const Categories = () => {
   return (
     <>
       {/* Section Header */}
-      <section className="categories-header container-fluid text-center text-white d-flex align-items-center">
-        <div className="container px-3 py-5">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <h1 className="display-4 fw-bold mb-4">
-                Toutes les catégories d'artisans
-              </h1>
-              <p className="lead mb-4">
-                Explorez l'ensemble de nos catégories d'artisanat et trouvez 
-                les professionnels qualifiés dont vous avez besoin.
-              </p>
-              
-              {/* Barre de recherche */}
-              <div className="categories-search mb-4">
-                <div className="input-group mx-auto search-group">
-                  <input 
-                    type="text" 
-                    className="form-control form-control-lg search-input" 
-                    placeholder="Rechercher une catégorie..." 
-                    value={searchTerm}
-                    onChange={(e) => {setSearchTerm(e.target.value)}}
-                  />
-                  <span className="input-group-text search-icon">
-                    <i className="bi bi-search"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Toutes les catégories d'artisans"
+        description="Explorez l'ensemble de nos catégories d'artisanat et trouvez 
+        les professionnels qualifiés dont vous avez besoin.">
+        <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            placeholder="Rechercher une catégorie..."
+          />
+      </Hero>
 
       {/* Section Catégories */}
       <section className="categories-grid py-5">

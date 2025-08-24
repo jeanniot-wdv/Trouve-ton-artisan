@@ -12,6 +12,8 @@ import CategoryArtisans from './pages/CategoryArtisans';
 import Artisans from './pages/Artisans';
 import Artisan from './pages/SingleArtisan';
 
+import NotFound from './pages/NotFound';
+
 function App() {
 
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/categories/:slug" element={<CategoryArtisans />} />
           <Route path="/artisans" element={<Artisans />} />
           <Route path="/artisan/:id" element={<Artisan />} />
+          
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
