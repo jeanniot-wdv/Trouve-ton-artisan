@@ -28,23 +28,7 @@ const contactLimiter = rateLimit({
   }
 });
 
-// Rate limiter pour les avis
-const reviewLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 heure
-  max: 3, // 3 avis par heure
-  message: {
-    success: false,
-    message: 'Trop d\'avis envoyés, veuillez patienter avant d\'envoyer un nouvel avis.'
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-  keyGenerator: (req) => {
-    return `${req.ip}-${req.body.email_client || 'anonymous'}`;
-  }
-});
-
 module.exports = {
   generalLimiter,
-  contactLimiter,
-  reviewLimiter
+  contactLimiter
 };

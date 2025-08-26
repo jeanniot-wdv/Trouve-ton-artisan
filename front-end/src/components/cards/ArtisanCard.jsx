@@ -1,4 +1,4 @@
-// components/ArtisanCard.jsx
+// components/cards/ArtisanCard.jsx
 import { Link } from 'react-router-dom';
 
 const StarRating = ({ rating }) => {
@@ -7,7 +7,7 @@ const StarRating = ({ rating }) => {
     stars.push(
       <i
         key={i}
-        className={`bi ${i <= rating ? 'bi-star-fill artisan-star' : 'bi-star artisan-star empty'}`}
+        className={`bi ${i <= rating ? 'bi-star-fill me-1 artisan-star small' : 'bi-star me-1 artisan-star small empty'}`}
       ></i>
     );
   }
@@ -23,7 +23,7 @@ const ArtisanCard = ({ artisan }) => {
             {/* Image de profil */}
             <div className="mb-3">
               <img
-                src={artisan.image_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(artisan.nom)}&background=0074C7&color=fff&size=120&bold=true`}
+                src={artisan.image_url}
                 alt={`${artisan.nom}`}
                 className="rounded-circle artisan-profile-img"
                 onError={(e) => {
@@ -33,13 +33,13 @@ const ArtisanCard = ({ artisan }) => {
             </div>
             
             {/* Nom */}
-            <h5 className="artisan-name">{artisan.nom}</h5>
+            <h5 className="artisan-name fw-medium mb-2">{artisan.nom}</h5>
             
             {/* Note */}
             <StarRating rating={Math.round(artisan.note_moyenne || artisan.note || 0)} />
             
             {/* Spécialité */}
-            <p className="artisan-specialty">
+            <p className="small mb-2">
               {artisan.specialite?.nom_specialite || 'Spécialité non précisée'}
             </p>
             
@@ -50,7 +50,7 @@ const ArtisanCard = ({ artisan }) => {
             </p>
             
             {/* Bouton */}
-            <button className="btn artisan-btn">
+            <button className="btn artisan-btn fw-medium white">
               Voir le profil
             </button>
           </div>

@@ -1,4 +1,4 @@
-// components/Footer.jsx
+// components/common/Footer.jsx
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../../services/apiServices';
@@ -82,22 +82,22 @@ const Footer = () => {
             <h6 className="fw-bold text-uppercase mb-3">Pages légales</h6>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <Link to="/mentions-legales" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
                   Mentions légales
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/donnees-personnelles" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
                   Données personnelles
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/accessibilite" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
                   Accessibilité
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/cookies" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
                   Cookies
                 </Link>
               </li>

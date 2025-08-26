@@ -1,4 +1,4 @@
-// components/search/HeroSearchBar.jsx
+// components/scommon/HeroSearchBar.jsx
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import apiService from "../../services/apiServices";
@@ -49,21 +49,15 @@ const HeroSearchBar = () => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="hero-search mb-4 position-relative">
-      <div className="input-group mx-auto search-group">
+    <div className="mb-4 position-relative">
+      <div className="input-group mx-auto w-75 search-group">
         <input
           type="text"
-          className="form-control form-control-lg search-input"
+          className="form-control form-control-lg rounded-5 px-4"
           placeholder="Trouver un artisan par nom"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button
-          className="btn btn-lg px-4 text-white fw-semibold search-btn"
-          type="submit"
-        >
-          Rechercher
-        </button>
       </div>
 
       {/* Suggestions */}
@@ -89,7 +83,7 @@ const HeroSearchBar = () => {
           Chargement...
         </div>
       )}
-    </form>
+    </div>
   );
 };
 

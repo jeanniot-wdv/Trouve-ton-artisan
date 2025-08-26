@@ -73,10 +73,6 @@ const CategoryArtisans = () => {
               {category?.description && (
                 <p className="lead mb-4">{category.description}</p>
               )}
-              
-              <p className="mb-0">
-                <strong>{category?.nb_artisans}</strong> artisan(s) disponible(s)
-              </p>
             </div>
           </div>
         </div>
@@ -84,6 +80,9 @@ const CategoryArtisans = () => {
 
       {/* Section filtres et résultats */}
       <section className="py-5 bg-light">
+        <h2 className="text-center mb-4">
+          {category?.nb_artisans} artisan(s) disponible(s)
+        </h2>
         <div className="container">
           {/* Filtres */}
           <div className="row mb-4">

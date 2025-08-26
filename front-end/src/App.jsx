@@ -13,6 +13,7 @@ import Artisans from './pages/Artisans';
 import Artisan from './pages/SingleArtisan';
 
 import NotFound from './pages/NotFound';
+import Construction from './pages/Construction';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/artisans" element={<Artisans />} />
           <Route path="/artisan/:id" element={<Artisan />} />
           
+          <Route path="/construction" element={<Construction />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

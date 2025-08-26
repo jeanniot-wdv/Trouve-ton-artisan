@@ -1,6 +1,6 @@
 // services/apiService.js
 
-// Configuration pour Vite (si vous utilisez Vite)
+// Configuration pour Vite
 const API_BASE_URL = import.meta.env?.VITE_API_URL || 'http://localhost:3001/api';
 
 // OU Configuration pour Create React App (si vous utilisez CRA)
@@ -68,8 +68,8 @@ class ApiService {
   }
 
   // Envoyer un message de contact
-  async sendContact(contactData) {
-    return this.request('/contact', {
+  async sendContact(artisanId, contactData) {
+    return this.request(`/contact/artisan/${artisanId}`, {
       method: 'POST',
       body: JSON.stringify(contactData),
     });

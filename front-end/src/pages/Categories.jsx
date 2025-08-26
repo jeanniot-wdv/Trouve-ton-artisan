@@ -1,4 +1,4 @@
-// components/Categories.jsx
+// pages/Categories.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useCategories from '../hooks/useCategories';
@@ -61,7 +61,7 @@ const Categories = () => {
             <>
               {/* Résumé des résultats */}
               <div className="text-center mb-5">
-                <h2 className="categories-subtitle mb-3">
+                <h2 className="mb-3">
                   {
                   searchTerm 
                     ? `${filteredCategories.length} catégorie(s) trouvée(s) pour "${searchTerm}"`
@@ -86,11 +86,11 @@ const Categories = () => {
                           <div className="card-body p-4">
                             {/* Icône et titre */}
                             <div className="d-flex align-items-center mb-3">
-                              <div className="category-main-icon text-primary me-3">
+                              <div className="d-flex text-white align-items-center justify-content-center flex-shrink-0 category-main-icon rounded-3 me-3">
                                 <i className={`bi ${getCategoryIcon(category.nom_categorie)} fs-3`}></i>
                               </div>
                               <div>
-                                <h4 className="category-main-title mb-1">
+                                <h4 className="fw-medium mb-0">
                                   {category.nom_categorie}
                                 </h4>
                                 <p className="category-count mb-0">
@@ -101,7 +101,7 @@ const Categories = () => {
 
                             {/* Description */}
                             {category.description && (
-                              <p className="category-description mb-3">
+                              <p className="mb-3">
                                 {category.description}
                               </p>
                             )}
@@ -109,15 +109,15 @@ const Categories = () => {
                             {/* Spécialités */}
                             {category.specialites && category.specialites.length > 0 && (
                               <div className="specialites-list">
-                                <h6 className="specialites-title mb-2">Spécialités :</h6>
+                                <h6 className="specialites-title fw-semibold mb-2">Spécialités :</h6>
                                 <div className="d-flex flex-wrap gap-2">
                                   {category.specialites.slice(0, 3).map((specialite, index) => (
-                                    <span key={specialite.id_specialite} className="badge specialite-badge">
+                                    <span key={specialite.id_specialite} className="badge rounded-5 small py-2 px-3 specialite-badge">
                                       {specialite.nom_specialite}
                                     </span>
                                   ))}
                                   {category.specialites.length > 3 && (
-                                    <span className="badge more-specialites">
+                                    <span className="badge rounded-5 small py-2 px-3 more-specialites">
                                       +{category.specialites.length - 3} autres
                                     </span>
                                   )}
@@ -126,11 +126,8 @@ const Categories = () => {
                             )}
 
                             {/* Bouton d'action */}
-                            <div className="mt-4">
-                              <button className="btn category-action-btn w-100">
-                                Voir les artisans
-                                <i className="bi bi-arrow-right ms-2"></i>
-                              </button>
+                            <div className="mt-4 text-center">
+                              <button className="btn artisan-btn fw-medium white">Voir les artisans</button>
                             </div>
                           </div>
                         </div>
@@ -146,11 +143,9 @@ const Categories = () => {
                         Aucune catégorie ne correspond à votre recherche "{searchTerm}".
                       </p>
                       <button 
-                        className="btn btn-outline-primary"
+                        className="btn btn-outline-secondary"
                         onClick={() => setSearchTerm('')}
-                      >
-                        Voir toutes les catégories
-                      </button>
+                      >Voir toutes les catégories</button>
                     </div>
                   </div>
                 )}

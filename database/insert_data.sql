@@ -10,7 +10,7 @@ INSERT INTO categories (nom_categorie, slug_categorie, description) VALUES
 ('Fabrication', 'fabrication', 'Artisans créateurs et fabricants d\'objets artisanaux'),
 ('Alimentation', 'alimentation', 'Artisans des métiers de bouche et de l\'alimentation');
 
--- Insertion des spécialités (basées sur les données fournies)
+-- Insertion des spécialités
 INSERT INTO specialites (nom_specialite, id_categorie, description) VALUES
 -- Bâtiment (id_categorie = 1)
 ('Plombier', 1, 'Installation et réparation de plomberie'),
@@ -112,17 +112,3 @@ NULL, '/images/artisans/valerie-laderoute.jpg', 4.5, 34, FALSE, TRUE),
 ('CM Graphisme', 'contact@cm-graphisme.com', '04.75.XX.XX.XX', 'Adresse à compléter', 'Valence', '26000', 'Drôme', 8, 
 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin.', 
 'https://cm-graphisme.com', '/images/artisans/cm-graphisme.jpg', 4.4, 56, FALSE, TRUE);
-
--- Insertion d'avis d'exemple
-INSERT INTO avis (id_artisan, nom_client, email_client, note, commentaire, valide) VALUES
-(1, 'Jean Dupont', 'j.dupont@email.fr', 5, 'Excellent travail, très professionnel et ponctuel. Je recommande vivement !', TRUE),
-(1, 'Marie Leblanc', 'm.leblanc@email.fr', 4, 'Travail de qualité, quelques retards mais résultat parfait.', TRUE),
-(2, 'Sophie Martin', 's.martin@email.fr', 5, 'Créations magnifiques, artisan très talentueuse. Mes invités ont adoré !', TRUE),
-(3, 'Pierre Durand', 'p.durand@email.fr', 5, 'Le meilleur pain de Grenoble ! Croissants exceptionnels.', TRUE),
-(3, 'Anne Moreau', 'a.moreau@email.fr', 4, 'Très bon pain, parfois en rupture le dimanche matin.', TRUE);
-
--- Quelques messages de contact d'exemple
-INSERT INTO messages_contact (id_artisan, nom_expediteur, email_expediteur, objet, message, traite) VALUES
-(1, 'Laurent Bernard', 'l.bernard@email.fr', 'Devis rénovation maison', 'Bonjour, je souhaiterais un devis pour la rénovation complète de ma cuisine. Pourriez-vous me contacter ? Merci.', FALSE),
-(2, 'Isabelle Petit', 'i.petit@email.fr', 'Commande vases personnalisés', 'Bonjour, je recherche 6 vases assortis pour ma terrasse. Pouvez-vous réaliser du sur-mesure ?', FALSE),
-(4, 'Michel Roux', 'm.roux@email.fr', 'Urgence fuite cuisine', 'Bonjour, j\'ai une fuite importante sous mon évier. Pouvez-vous intervenir rapidement ? Merci.', TRUE);

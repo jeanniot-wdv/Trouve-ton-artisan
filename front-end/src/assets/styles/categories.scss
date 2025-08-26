@@ -1,43 +1,10 @@
 // assets/styles/categories.scss
 @use './variables' as *;
 
-/* ===== SECTION HEADER ===== */
-.categories-header {
-  background: linear-gradient(135deg, rgba($secondary-blue, 0.9) 0%, rgba($primary-blue, 0.9) 50%, rgba($dark-blue, 0.8) 100%);
-  min-height: 400px;
-  margin-top: 85px;
-}
-
-/* ===== BARRE DE RECHERCHE ===== */
-.categories-search {
-  .search-group {
-    max-width: 500px;
-  }
-
-  .search-input {
-    border-radius: 25px 0 0 25px;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .search-icon {
-    border-radius: 0 25px 25px 0;
-    background-color: $green;
-    border-color: $green;
-    color: white;
-    border: none;
-  }
-}
-
 /* ===== SECTION GRILLE ===== */
 .categories-grid {
   background-color: $light-blue;
   min-height: calc(100vh - 500px);
-}
-
-.categories-subtitle {
-  color: $secondary-blue;
-  font-weight: 600;
 }
 
 .categories-spinner {
@@ -47,34 +14,10 @@
 }
 
 /* ===== CARTES PRINCIPALES ===== */
-.category-main-card {
-  transition: all 0.3s ease;
-  border-radius: 12px;
-  overflow: hidden;
-  
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
-  }
-}
-
 .category-main-icon {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, $primary-blue 0%, $secondary-blue 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  flex-shrink: 0;
-}
-
-.category-main-title {
-  color: $dark-blue;
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-bottom: 0;
+  background: rgba($primary-blue, 0.3) !important;
 }
 
 .category-count {
@@ -83,95 +26,28 @@
   font-weight: 500;
 }
 
-.category-description {
-  color: #6c757d;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
 /* ===== SPÉCIALITÉS ===== */
 .specialites-title {
   color: $dark-blue;
   font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
 .specialite-badge {
   background-color: rgba($primary-blue, 0.1);
   color: $primary-blue;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
   border: 1px solid rgba($primary-blue, 0.2);
 }
 
 .more-specialites {
   background-color: rgba($green, 0.1);
   color: $green;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
   border: 1px solid rgba($green, 0.2);
-}
-
-/* ===== BOUTON D'ACTION ===== */
-.category-action-btn {
-  background: linear-gradient(135deg, $green 0%, darken($green, 10%) 100%);
-  border: none;
-  color: white;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba($green, 0.3);
-    color: white;
-  }
-}
-
-/* ===== ÉTAT VIDE ===== */
-.no-categories {
-  padding: 3rem 1rem;
-}
-
-.cta-btn {
-  border-radius: 25px;
-  border-width: 2px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .categories-header {
-    min-height: 350px;
-    padding: 2rem 0;
-  }
-  
-  .categories-search .search-group {
-    max-width: 100% !important;
-  }
-  
   .category-main-icon {
     width: 60px;
     height: 60px;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-    
-    .btn {
-      width: 100%;
-      max-width: 300px;
-    }
   }
 }

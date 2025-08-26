@@ -1,28 +1,11 @@
-// components/Header.jsx
+// components/common/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import apiService from '../../services/apiServices';
 
 const Header = () => {
-  const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
-
-  // Récupération des catégories pour le dropdown
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await apiService.getCategories();
-        if (response.success) {
-          setCategories(response.data);
-        }
-      } catch (err) {
-        console.error('Erreur lors du chargement des catégories:', err);
-      }
-    };
-
-    fetchCategories();
-  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -62,7 +45,7 @@ const Header = () => {
               {/* Artisans */}
               <li className="nav-item">
                 <Link 
-                  className={`nav-link fw-semibold ${isActive('/artisans')}`}
+                  className={`nav-link fw-medium ${isActive('/artisans')}`}
                   to="/artisans">
                   Artisans
                 </Link>
@@ -71,7 +54,7 @@ const Header = () => {
               {/* Catégories */}
               <li className="nav-item">
                 <Link 
-                  className={`nav-link fw-semibold ${isActive('/categories')}`}
+                  className={`nav-link fw-medium ${isActive('/categories')}`}
                   to="/categories">
                   Catégories
                 </Link>
@@ -81,16 +64,15 @@ const Header = () => {
             {/* Barre de recherche */}
             <form className="d-flex" role="search" onSubmit={handleSearch}>
               <input 
-                className="form-control me-2" 
+                className="form-control small me-2" 
                 type="search" 
                 placeholder="Rechercher un artisan..." 
                 aria-label="Search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ minWidth: '200px' }}
               />
               <button 
-                className="btn btn-outline-dark fw-semibold" 
+                className="btn btn-outline-dark fw-medium" 
                 type="submit">
                 Rechercher
               </button>

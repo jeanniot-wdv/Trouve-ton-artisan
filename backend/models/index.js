@@ -4,7 +4,6 @@ const { sequelize } = require('../config/database');
 const Category = require('./Category');
 const Speciality = require('./Speciality');
 const Artisan = require('./Artisan');
-const Review = require('./Review');
 const ContactMessage = require('./ContactMessage');
 
 // Définition des relations
@@ -32,19 +31,6 @@ Speciality.hasMany(Artisan, {
 Artisan.belongsTo(Speciality, {
   foreignKey: 'id_specialite',
   as: 'specialite'
-});
-
-// Un artisan a plusieurs avis
-Artisan.hasMany(Review, {
-  foreignKey: 'id_artisan',
-  as: 'avis',
-  onDelete: 'CASCADE'
-});
-
-// Un avis appartient à un artisan
-Review.belongsTo(Artisan, {
-  foreignKey: 'id_artisan',
-  as: 'artisan'
 });
 
 // Un artisan a plusieurs messages de contact
@@ -75,7 +61,6 @@ module.exports = {
   Category,
   Speciality,
   Artisan,
-  Review,
   ContactMessage,
   syncDatabase
 };

@@ -1,10 +1,21 @@
-
-
 // Variables globales
 
+// Couleurs principales
 $primary-blue: #0074C7;
 $secondary-blue: #00497C;
 $dark-blue: #384050;
 $light-blue: #F1F8FC;
 $accent-red: #CD2C2E;
 $green: #82B864;
+
+// Redéfinition des variables Bootstrap
+$blue: $primary-blue;
+$red: $accent-red;
+
+// Couleurs Bootstrap personnalisées
+$primary: $primary-blue;
+$secondary: $secondary-blue;
+$success: $green;
+$danger: $accent-red;
+$light: $light-blue;
+$dark: $dark-blue;

@@ -38,31 +38,6 @@ const validateContactMessage = [
   handleValidationErrors
 ];
 
-// Validation pour les avis
-const validateReview = [
-  body('nom_client')
-    .trim()
-    .isLength({ min: 2, max: 100 })
-    .withMessage('Le nom doit contenir entre 2 et 100 caractères'),
-  
-  body('email_client')
-    .isEmail()
-    .normalizeEmail()
-    .withMessage('Email invalide'),
-  
-  body('note')
-    .isInt({ min: 1, max: 5 })
-    .withMessage('La note doit être un nombre entre 1 et 5'),
-  
-  body('commentaire')
-    .optional()
-    .trim()
-    .isLength({ max: 1000 })
-    .withMessage('Le commentaire ne peut pas dépasser 1000 caractères'),
-  
-  handleValidationErrors
-];
-
 // Validation des paramètres d'ID
 const validateId = [
   param('id')
@@ -106,7 +81,6 @@ const validateSearchParams = [
 
 module.exports = {
   validateContactMessage,
-  validateReview,
   validateId,
   validateSearchParams,
   handleValidationErrors

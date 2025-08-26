@@ -1,11 +1,10 @@
 // components/CardStep.jsx
-
 const CardStep = ({ 
   stepNumber, 
   title, 
-  description, 
-  imageSrc = "https://placehold.co/300x200", 
-  imageAlt = "Illustration de l'étape",
+  description,
+  imageSrc, 
+  imageAlt,
   reverse = false 
 }) => {
   return (
@@ -21,9 +20,9 @@ const CardStep = ({
         </div>
         <div className="col-md-8 p-4">
           <div className="card-body">
-            <span className="step-number">Étape {stepNumber}</span>
+            <span className="step-number text-white fw-bold">Étape {stepNumber}</span>
             <h3 className="step-title">{title}</h3>
-            <p className="step-description">{description}</p>
+            <p>{description}</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-const { Artisan, Speciality, Category, Review } = require('../models');
+const { Artisan, Speciality, Category } = require('../models');
 const { Op } = require('sequelize');
 
 // Récupérer tous les artisans avec pagination et filtres
@@ -115,14 +115,6 @@ const getArtisanById = async (req, res, next) => {
               attributes: ['nom_categorie', 'slug_categorie']
             }
           ]
-        },
-        {
-          model: Review,
-          as: 'avis',
-          where: { valide: true },
-          required: false,
-          attributes: ['id_avis', 'nom_client', 'note', 'commentaire', 'created_at'],
-          order: [['created_at', 'DESC']]
         }
       ]
     });

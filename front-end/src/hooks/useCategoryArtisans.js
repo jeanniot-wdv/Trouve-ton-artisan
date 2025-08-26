@@ -1,4 +1,4 @@
-// hooks/useCategoryArtisans.js - Version de débogage
+// hooks/useCategoryArtisans.js
 import { useState, useEffect } from 'react';
 import apiService from '../services/apiServices';
 
