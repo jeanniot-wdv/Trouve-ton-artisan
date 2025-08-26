@@ -1,6 +1,7 @@
 // pages/Categories.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 import useCategories from '../hooks/useCategories';
 import Cta from '../components/common/Cta';
 
@@ -24,6 +25,8 @@ const Categories = () => {
 
     return matchNomCategorie || matchSpecialites;
   });
+
+  useTitle("Catégories");
 
   return (
     <>

@@ -1,7 +1,10 @@
 // pages/Construction.jsx
 import { Link } from "react-router-dom";
+import useTitle from '../hooks/useTitle';
 
 const Construction = () => {
+
+  useTitle();
 
   return (
     <div className="container-fluid construction hero-full bg-light d-flex align-items-center">
@@ -9,8 +12,8 @@ const Construction = () => {
         <div className="row justify-content-center">
           <div className="col-lg-8 col-md-10 text-center">
 
-            <h1 className="display-2 fw-bold mb-4">
-              En construction
+            <h1 className="display-3 fw-bold mb-4">
+              Cette page est en construction
             </h1>
 
             <h2 className="h4 mb-4 text-muted">
@@ -18,8 +21,8 @@ const Construction = () => {
             </h2>
 
             <p className="text-muted mb-4">
-              Nous travaillons dur pour vous offrir une expérience exceptionnelle. <br />
-              Cette fonctionnalité sera bientôt disponible !
+              Nous travaillons pour vous offrir une expérience exceptionnelle. <br />
+              Cette page sera bientôt disponible
             </p>
 
             <div className="text-center mb-5">

@@ -1,6 +1,7 @@
 // pages/CategoryArtisans.jsx
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 import ArtisanCard from '../components/cards/ArtisanCard';
 import useCategories from '../hooks/useCategories';
 import useCategoryArtisans from '../hooks/useCategoryArtisans';
@@ -36,6 +37,8 @@ const CategoryArtisans = () => {
       </div>
     );
   }
+  const title = "Catégorie " + slug;
+  useTitle(title);
 
   return (
     <>
