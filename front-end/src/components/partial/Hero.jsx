@@ -1,12 +1,13 @@
 
 const Hero = ({
+  classHero = "",
   title, 
   description, 
   children
 }) => {
   
   return (
-    <section className="hero container-fluid text-center text-white d-flex align-items-center">
+    <section className={`${classHero} hero container-fluid text-center text-white d-flex align-items-center`}>
       <div className="container px-3 py-4">
         <div className="row justify-content-center">
           <div className="col-lg-9">

@@ -51,8 +51,10 @@ body {
   font-family: 'Graphik', sans-serif !important;
   font-weight: 300;
   line-height: 1.6;
+  color: $dark-blue;
 }
-h2{
+
+h2 {
   color: $secondary-blue;
 }
 
@@ -61,6 +63,7 @@ h2{
   min-height: 350px;
   margin-top: 85px;
 }
+
 .hero-full {
   min-height: calc(100vh - 85px) !important;
 }
@@ -76,7 +79,11 @@ h2{
   }
 }
 
-.not-found {
+.no-results {
+  padding: 3rem 1rem;
+}
+
+.not-found, .construction {
   margin-top: 85px;
   h1 {color: $green}
 }

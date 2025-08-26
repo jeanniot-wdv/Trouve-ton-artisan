@@ -65,7 +65,7 @@ const Categories = () => {
                   {
                   searchTerm 
                     ? `${filteredCategories.length} catégorie(s) trouvée(s) pour "${searchTerm}"`
-                    : `${categories.length} catégories disponibles`
+                    : `${categories.length} catégorie(s) disponible(s)`
                   }
                 </h2>
                 <p className="text-muted">
