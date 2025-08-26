@@ -1,6 +1,7 @@
 // pages/Home.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../hooks/useTitle';
 import useArtisansDuMois from '../hooks/useArtisansDuMois';
 import useCategories from '../hooks/useCategories';
 
@@ -16,6 +17,8 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { categories, loading: categoriesLoading, getCategoryIcon } = useCategories(4);
   const { artisans, loading, error } = useArtisansDuMois(3);
+
+  useTitle("Accueil");
 
   return (
     <>

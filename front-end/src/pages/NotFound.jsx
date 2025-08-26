@@ -1,7 +1,11 @@
 // pages/NotFound.jsx
 import { Link } from "react-router-dom";
+import useTitle from '../hooks/useTitle';
 
 const NotFound = () => {
+  
+  useTitle();
+
   return (
     <div className="container not-found text-center py-5">
       <h1 className="display-1 fw-bold mb-4">404</h1>

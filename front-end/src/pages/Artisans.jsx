@@ -1,5 +1,6 @@
 // pages/Artisans.jsx
 import { useState } from 'react';
+import useTitle from '../hooks/useTitle';
 import useArtisans from '../hooks/useArtisans';
 
 import Hero from '../components/partial/Hero';
@@ -22,6 +23,8 @@ const Artisans = () => {
         return matchNomArtisan;
       })
     : [];
+
+    useTitle("Artisans");
 
   return (
     <>

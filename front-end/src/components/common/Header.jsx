@@ -1,6 +1,7 @@
 // components/common/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from '../../assets/images/Logo.png';
 import apiService from '../../services/apiServices';
 
 const Header = () => {
@@ -22,9 +23,9 @@ const Header = () => {
     <header className="fixed-top shadow bg-white">
       <nav className="navbar navbar-expand-lg py-3">
         <div className="container-fluid px-4">
-          {/* Logo */}
-          <Link className="navbar-brand" to="/">
-            <img src="src/assets/images/Logo.png" alt="Trouve Ton Artisan" width="200" />
+          {/* Logo importé en module*/}
+          <Link className="navbar-brand" to="/" onClick={() => {scrollTo(0,0)}}>
+            <img src={Logo} alt="Trouve Ton Artisan" width="200" />
           </Link>
 
           {/* Toggle button pour mobile */}

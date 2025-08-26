@@ -1,6 +1,7 @@
 // pages/Artisan.jsx
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import useTitle from '../hooks/useTitle';
 import apiService from '../services/apiServices';
 import ContactForm from '../components/form/ContactForm';
 import '../assets/styles/artisan.scss';
@@ -11,6 +12,8 @@ const Artisan = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  useTitle(artisan?.nom)
+  
   useEffect(() => {
     const fetchArtisan = async () => {
       try {
