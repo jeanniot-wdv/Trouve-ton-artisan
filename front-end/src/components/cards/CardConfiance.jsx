@@ -1,4 +1,4 @@
-
+// components/cards/CardConfiance.jsx
 
 const CardConfiance = ({icon, iconColor, title, description}) => {
   return (
@@ -8,7 +8,7 @@ const CardConfiance = ({icon, iconColor, title, description}) => {
           <div className={`trust-icon trust-icon-${iconColor} mb-3`}>
             <i className={`bi bi-${icon} fs-1 text-white`}></i>
           </div>
-          <h4 className="fw-bold mb-3 trust-card-title">{title}</h4>
+          <h4 className="fw-medium mb-3 trust-card-title">{title}</h4>
           <p className="text-muted">{description}</p>
         </div>
       </div>

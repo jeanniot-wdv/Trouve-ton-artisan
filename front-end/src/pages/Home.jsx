@@ -1,4 +1,4 @@
-// components/Home.jsx
+// pages/Home.jsx
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useArtisansDuMois from '../hooks/useArtisansDuMois';
@@ -8,8 +8,8 @@ import Hero from '../components/partial/Hero';
 import HeroSearchBar from '../components/common/HeroSearchBar';
 import ArtisanCard from '../components/cards/ArtisanCard';
 import CardStep from '../components/cards/CardStep';
-import CardConfiance from '../components/cards/CardConfiance';
 import Cta from '../components/common/Cta';
+import CardConfiance from '../components/cards/CardConfiance';
 
 
 const Home = () => {
@@ -49,7 +49,7 @@ const Home = () => {
                       <div className="category-icon mx-auto mb-3">
                         <i className={`bi ${getCategoryIcon(category.nom_categorie)} fs-4 text-white`}></i>
                       </div>
-                      <h6 className="card-title mb-2 fs-6 fw-semibold text-white">
+                      <h6 className="card-title mb-2 fs-6 fw-medium text-white">
                         {category.nom_categorie}
                       </h6>
                       <p className="card-text small text-white opacity-75">
@@ -63,7 +63,7 @@ const Home = () => {
           )}
         </div>
         <button 
-          className="btn btn-outline-light btn-lg px-4 fw-semibold hero-cta-btn"
+          className="btn btn-outline-light px-4"
           onClick={() => document.getElementById('best-artisan')?.scrollIntoView(0, { behavior: 'smooth' })}>
           Les artisans du mois
         </button>
@@ -72,7 +72,7 @@ const Home = () => {
       {/* Section Comment ça marche */}
       <section id="comment-ca-marche" className="container py-5">
         <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold mb-3" style={{ color: '#384050' }}>
+          <h2 className="display-5 fw-medium mb-3">
             Comment trouver mon artisan ?
           </h2>
           <p className="lead text-muted">
@@ -90,7 +90,6 @@ const Home = () => {
               imageAlt="Illustration du choix de catégorie"
               reverse={false}
             />
-
             <CardStep
               stepNumber={2}
               title="Choisir un artisan"
@@ -99,7 +98,6 @@ const Home = () => {
               imageAlt="Illustration du choix d'artisan"
               reverse={true}
             />
-
             <CardStep
               stepNumber={3}
               title="Le contacter via le formulaire de contact"
@@ -108,7 +106,6 @@ const Home = () => {
               imageAlt="Illustration du formulaire de contact"
               reverse={false}
             />
-
             <CardStep
               stepNumber={4}
               title="Une réponse sera apportée sous 48h"
@@ -125,7 +122,7 @@ const Home = () => {
       <section id="best-artisan" className="artisans-section py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="display-5 fw-bold mb-3 section-title">
+            <h2 className="display-5 fw-medium mb-3 section-title">
               Les artisans du mois
             </h2>
             <p className="lead text-muted mb-4">
@@ -181,7 +178,7 @@ const Home = () => {
       {/* Section Une plateforme de confiance */}
       <section className="py-5 bg-light">
         <div className="container">
-          <h2 className="display-5 text-center fw-bold mb-3 trust-title mb-5">Une plateforme de confiance</h2>
+          <h2 className="display-5 text-center fw-medium mb-3 trust-title mb-5">Une plateforme de confiance</h2>
           <div className="row g-4 justify-content-center">
 
             <CardConfiance icon="patch-check" iconColor="primary" title="Artisans vérifiés"

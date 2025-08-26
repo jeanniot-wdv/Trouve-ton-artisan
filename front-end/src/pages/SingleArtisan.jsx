@@ -82,7 +82,7 @@ const Artisan = () => {
         {/* Col droite : formulaire de contact */}
         <div className="col-lg-4">
           <div className="card border-0 shadow-sm p-4 artisan-contact">
-            <h5 className="fw-bold mb-3">Contacter {artisan.nom}</h5>
+            <h5 className="fw-medium mb-3">Contacter {artisan.nom}</h5>
             <ContactForm artisanId={artisan.id_artisan} />
           </div>
         </div>

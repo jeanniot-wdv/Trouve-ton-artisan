@@ -99,28 +99,6 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
   return R * c; // Distance en km
 };
 
-// Générer des statistiques d'étoiles pour les avis
-const calculateRatingStats = (reviews) => {
-  if (!reviews || reviews.length === 0) {
-    return {
-      moyenne: 0,
-      total: 0,
-      repartition: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 }
-    };
-  }
-
-  const total = reviews.length;
-  const sum = reviews.reduce((acc, review) => acc + review.note, 0);
-  const moyenne = formatRating(sum / total);
-  
-  const repartition = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-  reviews.forEach(review => {
-    repartition[review.note]++;
-  });
-
-  return { moyenne, total, repartition };
-};
-
 // Nettoyer et valider les paramètres de recherche
 const sanitizeSearchParams = (params) => {
   const cleaned = {};

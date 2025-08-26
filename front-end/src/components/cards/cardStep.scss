@@ -46,30 +46,12 @@
 
 /* Numéro d'étape */
 .step-number {
-  background: linear-gradient(135deg, $primary-blue, $secondary-blue);
-  color: white;
-  font-weight: bold;
-  font-size: 0.9rem;
+  background: $primary-blue;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   display: inline-block;
   margin-bottom: 1rem;
   box-shadow: 0 2px 8px rgba(0, 116, 199, 0.3);
-}
-
-/* Titre de l'étape */
-.step-title {
-  color: $dark-blue;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-
-/* Description */
-.step-description {
-  color: #6c757d;
-  line-height: 1.6;
-  font-size: 1rem;
 }
 
 /* Responsive */

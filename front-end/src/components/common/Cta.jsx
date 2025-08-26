@@ -13,15 +13,15 @@ const Cta = ({
       <div className="container text-center">
         <div className="row justify-content-center">
           <div className="col-lg-8">
-            <h2 className="display-5 fw-bold mb-4">{title}</h2>
+            <h2 className="display-5 mb-4">{title}</h2>
             <p className="lead mb-5">{description}</p>
             <div className="d-flex flex-wrap justify-content-center gap-3 cta-buttons">
 
               <Link to={`/${linkToLeft}`}
-                className="btn btn-outline-light btn-lg px-4 fw-semibold cta-btn">
+                className="btn btn-outline-light px-4">
                 {textButtonLeft}</Link>
               <Link to={`/${linkToRight}`} 
-                className="btn btn-outline-light btn-lg px-4 fw-semibold cta-btn">
+                className="btn btn-outline-light px-4">
                 {textButtonRight}</Link>
 
             </div>

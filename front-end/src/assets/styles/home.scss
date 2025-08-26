@@ -1,34 +1,6 @@
 // assets/styles/home.scss
 @use './variables' as *;
 
-/* ===== SECTION HERO ===== */
-.hero-section {
-  background: linear-gradient(135deg, rgba($secondary-blue, 0.8) 0%, rgba($primary-blue, 0.8) 40%, rgba($accent-red, 0.7) 100%);
-  min-height: calc(100vh - 85px);
-  margin-top: 85px;
-}
-
-/* ===== BARRE DE RECHERCHE ===== */
-.search-group {
-  max-width: 500px;
-}
-
-.search-input {
-  border-radius: 25px 0 0 25px;
-  border: none;
-}
-
-.search-btn {
-  border-radius: 0 25px 25px 0;
-  background-color: $green;
-  border-color: $green;
-  
-  &:hover {
-    background-color: darken($green, 10%);
-    border-color: darken($green, 10%);
-  }
-}
-
 /* ===== CARTES CATÉGORIES ===== */
 .category-card {
   background-color: rgba(255, 255, 255, 0.2) !important;
@@ -50,17 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* ===== BOUTON CTA HERO ===== */
-.hero-cta-btn {
-  border-radius: 25px;
-  border-width: 2px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
 }
 
 /* ===== SECTION ARTISANS ===== */
@@ -85,16 +46,6 @@
   background: linear-gradient(135deg, $green 0%, $primary-blue 100%);
 }
 
-.cta-btn {
-  border-radius: 25px;
-  border-width: 2px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
-}
-
 /* ===== SECTION CONFIANCE ===== */
 .trust-title {
   color: $dark-blue;
@@ -113,9 +64,9 @@
 }
 
 .trust-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
   display: inline-flex;
   align-items: center;
   justify-content: center;

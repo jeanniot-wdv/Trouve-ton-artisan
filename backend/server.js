@@ -11,7 +11,6 @@ const { generalLimiter } = require('./middleware/rateLimiter');
 // Import des routes
 const categoriesRouter = require('./routes/categories');
 const artisansRouter = require('./routes/artisans');
-const reviewsRouter = require('./routes/reviews');
 const contactRouter = require('./routes/contact');
 
 // Initialisation de l'application
@@ -74,7 +73,6 @@ app.get('/api', (req, res) => {
     endpoints: {
       categories: '/api/categories',
       artisans: '/api/artisans',
-      reviews: '/api/reviews',
       contact: '/api/contact'
     },
     documentation: 'Consultez le README.md pour la documentation complète'
@@ -84,7 +82,6 @@ app.get('/api', (req, res) => {
 // Routes de l'API
 app.use('/api/categories', categoriesRouter);
 app.use('/api/artisans', artisansRouter);
-app.use('/api/reviews', reviewsRouter);
 app.use('/api/contact', contactRouter);
 
 // Middleware pour les routes non trouvées

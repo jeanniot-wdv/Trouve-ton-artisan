@@ -1,11 +1,12 @@
-// components/ContactForm.jsx
+// components/form/ContactForm.jsx
 import { useState } from 'react';
 import apiService from '../../services/apiServices';
 
 const ContactForm = ({ artisanId }) => {
   const [formData, setFormData] = useState({
-    nom: '',
-    email: '',
+    nom_expediteur: '',
+    email_expediteur: '',
+    objet: '',
     message: '',
   });
   const [success, setSuccess] = useState(null);
@@ -23,13 +24,10 @@ const ContactForm = ({ artisanId }) => {
     setSuccess(null);
 
     try {
-      const response = await apiService.sendContact({
-        ...formData,
-        artisanId,
-      });
+      const response = await apiService.sendContact(artisanId, formData);
       if (response.success) {
         setSuccess('Votre message a été envoyé avec succès.');
-        setFormData({ nom: '', email: '', message: '' });
+        setFormData({ nom_expediteur: '', email_expediteur: '', objet: '', message: '' });
       } else {
         throw new Error(response.message || 'Erreur lors de l’envoi');
       }
@@ -41,29 +39,44 @@ const ContactForm = ({ artisanId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="p-3 bg-white rounded shadow-sm">
       {success && <div className="alert alert-success">{success}</div>}
       {error && <div className="alert alert-danger">{error}</div>}
 
       <div className="mb-3">
-        <label htmlFor="nom" className="form-label">Nom</label>
+        <label htmlFor="nom_expediteur" className="form-label">Nom</label>
         <input
           type="text"
-          name="nom"
+          name="nom_expediteur"
+          id="nom_expediteur"
           className="form-control"
-          value={formData.nom}
+          value={formData.nom_expediteur}
           onChange={handleChange}
           required
         />
       </div>
 
       <div className="mb-3">
-        <label htmlFor="email" className="form-label">Email</label>
+        <label htmlFor="email_expediteur" className="form-label">Email</label>
         <input
           type="email"
-          name="email"
+          name="email_expediteur"
+          id="email_expediteur"
           className="form-control"
-          value={formData.email}
+          value={formData.email_expediteur}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="objet" className="form-label">Objet</label>
+        <input
+          type="text"
+          name="objet"
+          id="objet"
+          className="form-control"
+          value={formData.objet}
           onChange={handleChange}
           required
         />
@@ -73,6 +86,7 @@ const ContactForm = ({ artisanId }) => {
         <label htmlFor="message" className="form-label">Message</label>
         <textarea
           name="message"
+          id="message"
           className="form-control"
           rows="4"
           value={formData.message}
@@ -83,8 +97,7 @@ const ContactForm = ({ artisanId }) => {
 
       <button
         type="submit"
-        className="btn w-100 text-white"
-        style={{ backgroundColor: '#0074C7' }}
+        className="btn w-100 text-white fw-medium"
         disabled={loading}
       >
         {loading ? 'Envoi...' : 'Envoyer'}

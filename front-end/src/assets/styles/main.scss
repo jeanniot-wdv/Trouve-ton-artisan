@@ -43,8 +43,40 @@
 }
 
 // Styles globaux
+html {
+  scroll-behavior: auto !important;
+}
+
 body {
   font-family: 'Graphik', sans-serif !important;
   font-weight: 300;
   line-height: 1.6;
+}
+h2{
+  color: $secondary-blue;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba($secondary-blue, 0.9) 0%, rgba($primary-blue, 0.9) 50%, rgba($dark-blue, 0.8) 100%);
+  min-height: 350px;
+  margin-top: 85px;
+}
+.hero-full {
+  min-height: calc(100vh - 85px) !important;
+}
+
+.card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+.not-found {
+  margin-top: 85px;
+  h1 {color: $green}
 }

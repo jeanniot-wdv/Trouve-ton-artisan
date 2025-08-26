@@ -1,4 +1,4 @@
-// components/Artisans.jsx
+// pages/Artisans.jsx
 import { useState } from 'react';
 import useArtisans from '../hooks/useArtisans';
 
@@ -59,7 +59,7 @@ const Artisans = () => {
             <>
               {/* Résumé des résultats */}
               <div className="text-center mb-5">
-                <h2 className="categories-subtitle mb-3">
+                <h2 className="mb-3">
                   {
                   searchTerm 
                     ? `${filteredArtisans.length} artisan(s) trouvé(s) pour "${searchTerm}"`
@@ -99,24 +99,20 @@ const Artisans = () => {
                 {pagination && (
                   <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
                     <button
-                      className="btn btn-outline-primary"
+                      className="btn btn-outline-secondary"
                       onClick={() => setPage(page - 1)}
                       disabled={page <= 1}
-                    >
-                      ← Précédent
-                    </button>
+                    >Précédent</button>
 
                     <span>
                       Page {pagination.currentPage} / {pagination.totalPages}
                     </span>
 
                     <button
-                      className="btn btn-outline-primary"
+                      className="btn btn-outline-secondary"
                       onClick={() => setPage(page + 1)}
                       disabled={page >= pagination.totalPages}
-                    >
-                      Suivant →
-                    </button>
+                    >Suivant</button>
                   </div>
                 )}
               </div>
