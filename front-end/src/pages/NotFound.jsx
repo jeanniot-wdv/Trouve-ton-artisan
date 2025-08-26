@@ -10,7 +10,7 @@ const NotFound = () => {
         La page que vous recherchez est introuvable. <br />
         Vérifiez l’URL ou retournez à l’accueil.
       </p>
-      <Link to="/" className="btn btn-primary px-4">
+      <Link to="/" className="btn btn-outline-primary px-4">
         Retour à l’accueil
       </Link>
     </div>

@@ -1,23 +1,24 @@
 // assets/styles/footer.scss
 @use './variables' as *;
 
-/* ===== FOOTER STYLES ===== */
 footer {
   background-color: $green;
   
-  .hover-link {
+  a {
     transition: opacity 0.3s ease;
     
     &:hover {
+      font-weight: 400;
       opacity: 1 !important;
     }
   }
   
-  .hover-social {
+  .social i {
+    color: white;
+    padding-right: 0.35rem;
     transition: all 0.3s ease;
     
     &:hover {
-      background-color: $primary-blue !important;
       border-color: $primary-blue !important;
       transform: scale(1.1);
     }

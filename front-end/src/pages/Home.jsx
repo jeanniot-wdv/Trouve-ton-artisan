@@ -21,13 +21,12 @@ const Home = () => {
     <>
       {/* Section Hero */}
       <Hero 
+        classHero="hero-full"
         title="Découvrez les artisans de votre région"
         description="Trouvez facilement un artisan qualifié en Auvergne-Rhône-Alpes. 
           Contactez-les directement et obtenez une réponse sous 48h."
       >
-        {/* Searchbar spécifique à la Home */}
-        <HeroSearchBar />
-              
+        <HeroSearchBar />  
         <p className="mb-4 fs-6">Ou explorez par catégorie ci-dessous</p>
         
         {/* Cartes de catégories */}

@@ -35,15 +35,15 @@ const Footer = () => {
               La plateforme officielle de la région Auvergne-Rhône-Alpes pour trouver et contacter les artisans locaux.
             </p>
             <div>
-              <span className="fw-semibold mb-2 d-block">Suivez-nous :</span>
-              <div className="d-flex gap-2">
-                <a href="#" className="btn btn-outline-light btn-sm rounded-circle p-2 hover-social" aria-label="Facebook">
+              <span className="fw-medium mb-2 d-block">Suivez-nous :</span>
+              <div className="d-flex social gap-2">
+                <a href="#" className="rounded-5" aria-label="Facebook">
                   <i className="bi bi-facebook"></i>
                 </a>
-                <a href="#" className="btn btn-outline-light btn-sm rounded-circle p-2 hover-social" aria-label="X (Twitter)">
+                <a href="#" className=" rounded-5" aria-label="X (Twitter)">
                   <i className="bi bi-twitter-x"></i>
                 </a>
-                <a href="#" className="btn btn-outline-light btn-sm rounded-circle p-2 hover-social" aria-label="LinkedIn">
+                <a href="#" className=" rounded-5" aria-label="LinkedIn">
                   <i className="bi bi-linkedin"></i>
                 </a>
               </div>
@@ -52,13 +52,13 @@ const Footer = () => {
 
           {/* Catégories */}
           <div className="col-lg-3 col-md-6">
-            <h6 className="fw-bold text-uppercase mb-3">Catégories</h6>
+            <h6 className="fw-semibold text-uppercase mb-3">Catégories</h6>
             <ul className="list-unstyled">
               {categories.slice(0, 6).map((category) => (
                 <li key={category.id_categorie} className="mb-2">
                   <Link 
                     to={`/categories/${category.slug_categorie}`}
-                    className="text-light text-decoration-none opacity-75 hover-link"
+                    className="text-light text-decoration-none opacity-75"
                   >
                     {category.nom_categorie}
                   </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
                 <li className="mb-2">
                   <Link 
                     to="/categories" 
-                    className="text-primary text-decoration-none fw-semibold hover-link"
+                    className="text-primary text-decoration-none fw-semibold"
                   >
                     Voir toutes les catégories
                   </Link>
@@ -82,22 +82,22 @@ const Footer = () => {
             <h6 className="fw-bold text-uppercase mb-3">Pages légales</h6>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75">
                   Mentions légales
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75">
                   Données personnelles
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75">
                   Accessibilité
                 </Link>
               </li>
               <li className="mb-2">
-                <Link to="/construction" className="text-light text-decoration-none opacity-75 hover-link">
+                <Link to="/construction" className="text-light text-decoration-none opacity-75">
                   Cookies
                 </Link>
               </li>
