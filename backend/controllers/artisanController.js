@@ -1,3 +1,4 @@
+
 const artisanService = require('../services/artisanService');
 
 const getAllArtisans = async (req, res, next) => {

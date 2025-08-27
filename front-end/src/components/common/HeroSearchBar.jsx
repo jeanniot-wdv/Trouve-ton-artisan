@@ -62,7 +62,7 @@ const HeroSearchBar = () => {
 
       {/* Suggestions */}
       {suggestions.length > 0 && (
-        <ul className="list-group position-absolute w-100 mt-1 shadow-sm z-3">
+        <ul className="list-group position-absolute w-75 mt-1 start-50 translate-middle-x rounded-4 shadow-sm z-3">
           {suggestions.map((artisan) => (
             <li
               key={artisan.id_artisan}
