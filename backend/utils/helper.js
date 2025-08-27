@@ -144,6 +144,5 @@ module.exports = {
   createApiResponse,
   createPagination,
   calculateDistance,
-  calculateRatingStats,
   sanitizeSearchParams
 };

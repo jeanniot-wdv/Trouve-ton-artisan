@@ -3,4 +3,8 @@
 .DS_Store
 Thumbs.db
 
+backend/.env
+backend/.gitignore
+front-end/.env
+front-end/.gitignore
 front-end/.vite/deps/
