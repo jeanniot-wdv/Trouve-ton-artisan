@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:prod": "vite --mode production",
+    "build:dev": "vite build --mode development",
+    "env:check": "node -e \"console.log('Variables Vite:'); console.log('VITE_API_URL:', process.env.VITE_API_URL || 'Non définie');\"",
+    "env:create": "echo 'VITE_API_URL=http://localhost:3001/api\nVITE_SITE_NAME=Trouve ton artisan\nVITE_REGION=Auvergne-Rhône-Alpes' > .env && echo '✅ Fichier .env créé'"
   },
   "dependencies": {
     "bootstrap": "^5.3.7",

@@ -1,3 +1,16 @@
+// Au début de server.js
+const path = require('path');
+
+// Chargement conditionnel des variables d'environnement
+if (process.env.NODE_ENV === 'production') {
+  // En production, Render fournit les variables directement
+  console.log('🌍 Mode production - Variables depuis Render');
+} else {
+  // En développement, charge .env.dev
+  require('dotenv').config({ path: path.join(__dirname, '.env.dev') });
+  console.log('🏠 Mode développement - Variables depuis .env.dev');
+}
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');

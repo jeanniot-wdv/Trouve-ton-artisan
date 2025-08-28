@@ -67,7 +67,7 @@ const CategoryArtisans = () => {
                 <div className="category-main-icon me-3">
                   <i className={`bi ${getCategoryIcon(category?.nom_categorie)} fs-2`}></i>
                 </div>
-                <h1 className="display-4 fw-bold mb-0">
+                <h1 className="display-4 fw-medium mb-0">
                   {category?.nom_categorie || 'Chargement...'}
                 </h1>
               </div>
