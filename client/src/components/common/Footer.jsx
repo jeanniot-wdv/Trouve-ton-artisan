@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../../services/apiServices';
+import Logo from '../../assets/images/Logo.png';
 
 const Footer = () => {
   const [categories, setCategories] = useState([]);
@@ -29,7 +30,7 @@ const Footer = () => {
           {/* Logo et Description */}
           <div className="col-lg-3 col-md-6">
             <div className="mb-3">
-              <img src="src/assets/images/Logo.png" alt="Trouve Ton Artisan" width="200" />
+              <img src={Logo} alt="Trouve Ton Artisan" width="200" />
             </div>
             <p className="text-light opacity-75 mb-4">
               La plateforme officielle de la région Auvergne-Rhône-Alpes pour trouver et contacter les artisans locaux.
