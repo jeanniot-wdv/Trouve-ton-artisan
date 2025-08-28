@@ -1,7 +1,6 @@
 // components/common/Header.jsx
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.png';
-import Login from '../form/Login';
 
 const Header = () => {
   const location = useLocation();
@@ -13,7 +12,7 @@ const Header = () => {
   return (
     <header className="fixed-top shadow bg-white">
       <nav className="navbar navbar-expand-lg py-3">
-        <div className="container-fluid px-4">
+        <div className="container">
           {/* Logo importé en module*/}
           <Link className="navbar-brand" to="/" onClick={() => {scrollTo(0,0)}}>
             <img src={Logo} alt="Trouve Ton Artisan" width="200" />
@@ -33,20 +32,20 @@ const Header = () => {
 
           {/* Navigation */}
           <div className="collapse navbar-collapse justify-content-end" id="navbarContent">
-            <ul className="navbar-nav mb-2 mb-lg-0 me-3">
+            <ul className="navbar-nav d-flex gap-3 mb-2 mb-lg-0">
               {/* Artisans */}
               <li className="nav-item">
                 <Link 
-                  className={`nav-link fw-medium ${isActive('/artisans')}`}
+                  className={`nav-link rounded-5 fw-medium ${isActive('/artisans')}`}
                   to="/artisans">
                   Artisans
                 </Link>
               </li>
 
               {/* Catégories */}
-              <li className="nav-item me-3">
+              <li className="nav-item">
                 <Link 
-                  className={`nav-link fw-medium ${isActive('/categories')}`}
+                  className={`nav-link rounded-5 fw-medium ${isActive('/categories')}`}
                   to="/categories">
                   Catégories
                 </Link>
@@ -54,7 +53,6 @@ const Header = () => {
             </ul>
 
             {/* Formulaire de connexion */}
-            <Login />
           </div>
         </div>
       </nav>
