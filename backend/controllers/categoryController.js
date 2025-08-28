@@ -1,4 +1,3 @@
-
 const categoryService = require('../services/categoryService');
 
 const getAllCategories = async (req, res, next) => {

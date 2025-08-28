@@ -1,4 +1,3 @@
-
 const { Artisan, Speciality, Category } = require('../models');
 const { Op } = require('sequelize');
 

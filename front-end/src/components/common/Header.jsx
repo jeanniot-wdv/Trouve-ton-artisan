@@ -1,19 +1,10 @@
 // components/common/Header.jsx
-import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.png';
-import apiService from '../../services/apiServices';
+import Login from '../form/Login';
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
-    }
-  };
 
   const isActive = (path) => {
     return location.pathname === path ? 'active' : '';
@@ -53,7 +44,7 @@ const Header = () => {
               </li>
 
               {/* Catégories */}
-              <li className="nav-item">
+              <li className="nav-item me-3">
                 <Link 
                   className={`nav-link fw-medium ${isActive('/categories')}`}
                   to="/categories">
@@ -62,22 +53,8 @@ const Header = () => {
               </li>
             </ul>
 
-            {/* Barre de recherche */}
-            <form className="d-flex" role="search" onSubmit={handleSearch}>
-              <input 
-                className="form-control small me-2" 
-                type="search" 
-                placeholder="Rechercher un artisan..." 
-                aria-label="Search"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button 
-                className="btn btn-outline-dark fw-medium" 
-                type="submit">
-                Rechercher
-              </button>
-            </form>
+            {/* Formulaire de connexion */}
+            <Login />
           </div>
         </div>
       </nav>

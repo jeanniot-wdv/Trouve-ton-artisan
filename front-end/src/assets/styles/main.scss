@@ -53,8 +53,21 @@ body {
   color: $dark-blue;
 }
 
-h2 {
+h2, h3 {
   color: $secondary-blue;
+}
+
+.navbar {
+  .navbar-collapse {
+    button[type="submit"] {
+      background-color: $green;
+      color: white;
+
+      &:hover {
+        background-color: darken($green, 10%);
+      }
+    }
+  }
 }
 
 .hero {
