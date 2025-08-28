@@ -2,26 +2,29 @@
 @use './variables' as *;
 
 .navbar {
-  .nav-link {
-    color: $dark-blue !important;
-    transition: color 0.3s ease;
+  // .nav-link {
+  //   color: $dark-blue !important;
+  //   transition: color 0.3s ease;
     
-    &:hover, &.active {
-      color: $primary-blue !important;
-    }
-  }
+  //   &:hover, &.active {
+  //     color: $primary-blue !important;
+  //   }
+  // }
 
-  input {
-    min-width: 200px;
+.nav-link {
+  color: $green;
+  border: $green solid 1px;
+  // border-radius: 25px;
+  padding: 0.5rem 2rem !important;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba($green, 0.7);
+    color: white;
   }
-  
-  .btn-outline-dark {
-    border-color: $dark-blue;
-    color: $dark-blue;
-    
-    &:hover {
-      background-color: $primary-blue;
-      border-color: $primary-blue;
-    }
+  &.active {
+    background-color: rgba($green, 1);
+    color: white;
   }
+}
 }

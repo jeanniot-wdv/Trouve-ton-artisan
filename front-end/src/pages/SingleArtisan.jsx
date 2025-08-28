@@ -64,7 +64,10 @@ const Artisan = () => {
             </div>
 
             {artisan.description && (
+              <>
+              <h3 className='fs-5'>A propos</h3>
               <p className="artisan-description">{artisan.description}</p>
+              </>
             )}
 
             <ul className="list-unstyled artisan-infos">

@@ -52,18 +52,6 @@ CREATE TABLE artisans (
     FOREIGN KEY (id_specialite) REFERENCES specialites(id_specialite) ON DELETE RESTRICT
 );
 
--- Table des avis (pour évolution future)
-CREATE TABLE avis (
-    id_avis INT PRIMARY KEY AUTO_INCREMENT,
-    id_artisan INT NOT NULL,
-    nom_client VARCHAR(100) NOT NULL,
-    email_client VARCHAR(150) NOT NULL,
-    note INT NOT NULL CHECK (note >= 1 AND note <= 5),
-    commentaire TEXT,
-    valide BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_artisan) REFERENCES artisans(id_artisan) ON DELETE CASCADE
-);
 
 -- Table des messages de contact
 CREATE TABLE messages_contact (
@@ -81,7 +69,6 @@ CREATE TABLE messages_contact (
 -- Création des index pour optimiser les performances
 CREATE INDEX idx_specialites_categorie ON specialites(id_categorie);
 CREATE INDEX idx_artisans_specialite ON artisans(id_specialite);
-CREATE INDEX idx_avis_artisan ON avis(id_artisan);
 CREATE INDEX idx_messages_artisan ON messages_contact(id_artisan);
 
 -- Index pour les recherches

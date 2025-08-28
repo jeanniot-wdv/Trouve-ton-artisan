@@ -134,10 +134,10 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <hr className="my-4 opacity-25" />
+        <hr className="my-4 opacity-50" />
         <div className="row">
           <div className="col-12 text-center">
-            <p className="mb-0 text-light opacity-50 small">
+            <p className="mb-0 text-light opacity-80 small">
               © 2025 Région Auvergne-Rhône-Alpes. Tous droits réservés.
             </p>
           </div>
