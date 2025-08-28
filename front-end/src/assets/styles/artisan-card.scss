@@ -55,9 +55,8 @@
 
 /* Bouton voir profil */
 .artisan-btn {
-  background-color: $primary-blue !important;
-  border-color: $primary-blue;
-  color: white !important;
+  background-color: rgba($accent-red, 0.8);
+  color: white;
   border-radius: 25px;
   font-size: 0.85rem;
   padding: 0.5rem 1.5rem;
@@ -65,8 +64,7 @@
 }
 
 .artisan-btn:hover {
-  background-color: $secondary-blue !important;
-  border-color: $secondary-blue !important;
+  background-color: rgba($accent-red, 1);
   transform: scale(1.05);
   color: white;
 }

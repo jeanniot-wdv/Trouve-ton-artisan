@@ -2,28 +2,11 @@ const express = require('express');
 const router = express.Router();
 const {
   sendContactMessage,
-  getMessagesByArtisan,
-  getRecentMessages,
-  markMessageAsProcessed,
-  getContactStats
+  getMessagesByArtisan
 } = require('../controllers/contactController');
 const { validateId, validateContactMessage } = require('../middleware/validation');
 const { contactLimiter } = require('../middleware/rateLimiter');
 
-/**
- * @route   GET /api/contact/recent
- * @desc    Récupérer les messages de contact récents (admin)
- * @access  Public (à protéger en production)
- * @query   ?limit=10&traite=false
- */
-router.get('/recent', getRecentMessages);
-
-/**
- * @route   GET /api/contact/stats
- * @desc    Récupérer les statistiques des messages de contact (admin)
- * @access  Public (à protéger en production)
- */
-router.get('/stats', getContactStats);
 
 /**
  * @route   GET /api/contact/artisan/:id
@@ -45,13 +28,5 @@ router.post('/artisan/:id',
   validateContactMessage, 
   sendContactMessage
 );
-
-/**
- * @route   PUT /api/contact/message/:messageId/status
- * @desc    Marquer un message comme traité/non traité (admin)
- * @access  Public (à protéger en production)
- * @body    { traite: boolean }
- */
-router.put('/message/:messageId/status', markMessageAsProcessed);
 
 module.exports = router;

@@ -1,18 +1,17 @@
 // assets/styles/main.scss
 
-// Import des variables et utilitaires
+// Import des variables
 @use './variables' as *;
 
 // Import des composants principaux
 @import './header';
 @import './footer';
 @import './home';
+@import './card-step';
 @import './categories';
-@import './categoryArtisans';
-
-// Import des composants de cartes
-@import '../../components/cards/artisan.scss';
-@import '../../components/cards/cardStep.scss';
+@import './category-artisans';
+@import './artisan';
+@import './artisan-card';
 
 // Import des polices
 @font-face {
@@ -54,8 +53,21 @@ body {
   color: $dark-blue;
 }
 
-h2 {
+h2, h3 {
   color: $secondary-blue;
+}
+
+.navbar {
+  .navbar-collapse {
+    button[type="submit"] {
+      background-color: $green;
+      color: white;
+
+      &:hover {
+        background-color: darken($green, 10%);
+      }
+    }
+  }
 }
 
 .hero {
