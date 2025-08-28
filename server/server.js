@@ -15,8 +15,6 @@ const contactRouter = require('./routes/contact');
 
 // Initialisation de l'application
 const app = express();
-
-// Configuration du port
 const PORT = process.env.PORT || 3001;
 
 // Middlewares de sécurité
@@ -46,7 +44,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Rate limiting
 app.use(generalLimiter);
 
-// Middleware de logging en développement
+// Middleware de logging simple
 if (process.env.NODE_ENV === 'development') {
   app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
@@ -54,17 +52,15 @@ if (process.env.NODE_ENV === 'development') {
   });
 }
 
-// Health check endpoint
+// Routes
 app.get('/health', (req, res) => {
   res.json({
     success: true,
     message: 'API Trouve ton artisan opérationnelle',
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development'
+    timestamp: new Date().toISOString()
   });
 });
 
-// Route d'accueil de l'API
 app.get('/api', (req, res) => {
   res.json({
     success: true,
@@ -74,8 +70,7 @@ app.get('/api', (req, res) => {
       categories: '/api/categories',
       artisans: '/api/artisans',
       contact: '/api/contact'
-    },
-    documentation: 'Consultez le README.md pour la documentation complète'
+    }
   });
 });
 
@@ -84,64 +79,52 @@ app.use('/api/categories', categoriesRouter);
 app.use('/api/artisans', artisansRouter);
 app.use('/api/contact', contactRouter);
 
-// Middleware pour les routes non trouvées
+// Middleware pour les erreurs
 app.use(notFound);
-
-// Middleware de gestion d'erreurs global
 app.use(errorHandler);
 
-// Fonction de démarrage du serveur
+// Démarrage du serveur
 const startServer = async () => {
   try {
-    // Test de la connexion à la base de données
-    await testConnection();
+    console.log('🔄 Démarrage du serveur...');
     
-    // Synchronisation des modèles (en développement seulement)
+    // Test connexion base de données
+    await testConnection();
+    console.log('✅ Connexion base de données établie');
+    
+    // Sync modèles en développement
     if (process.env.NODE_ENV === 'development') {
       const { syncDatabase } = require('./models');
-      await syncDatabase(false); // false = ne pas supprimer les données existantes
+      await syncDatabase(false);
+      console.log('✅ Modèles synchronisés');
     }
     
-    // Démarrage du serveur
+    // Lancement du serveur
     app.listen(PORT, () => {
-      console.log(`
-🚀 Serveur démarré avec succès !
-📍 Port: ${PORT}
-🌍 Environnement: ${process.env.NODE_ENV || 'development'}
-🔗 URL locale: http://localhost:${PORT}
-📚 Documentation API: http://localhost:${PORT}/api
-💓 Health check: http://localhost:${PORT}/health
-      `);
+      console.log(`🚀 Serveur lancé sur http://localhost:${PORT}`);
+      console.log(`📚 API: http://localhost:${PORT}/api`);
+      console.log(`💓 Health: http://localhost:${PORT}/health`);
+      console.log('Ctrl+C pour arrêter');
     });
     
   } catch (error) {
-    console.error('❌ Erreur lors du démarrage du serveur:', error);
+    console.error('❌ Erreur:', error.message);
     process.exit(1);
   }
 };
 
-// Gestion propre de l'arrêt du serveur
-process.on('SIGTERM', () => {
-  console.log('📴 Arrêt du serveur...');
-  process.exit(0);
-});
-
+// Arrêt propre du serveur
 process.on('SIGINT', () => {
-  console.log('📴 Arrêt du serveur...');
+  console.log('\n📴 Arrêt du serveur...');
   process.exit(0);
 });
 
-// Gestion des erreurs non capturées
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('🚨 Promesse non gérée:', reason);
+process.on('SIGTERM', () => {
+  console.log('\n📴 Arrêt du serveur...');
+  process.exit(0);
 });
 
-process.on('uncaughtException', (error) => {
-  console.error('🚨 Exception non capturée:', error);
-  process.exit(1);
-});
-
-// Démarrage du serveur
+// Démarrage
 startServer();
 
 module.exports = app;

@@ -343,11 +343,6 @@ npm run migrate    # Database migrations
 **Développeur | Developer**: Romain Jeanniot - [romain.jeanniot@example.com](mailto:romain.jeanniot@example.com)  
 **Client**: Région Auvergne-Rhône-Alpes - [contact@auvergnerhonealpes.fr](mailto:contact@auvergnerhonealpes.fr)
 
-## 📜 Licence | License
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.  
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ---
 
 <div align="center">
