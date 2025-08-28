@@ -1,13 +1,13 @@
 // services/apiService.js
 
 // Configuration pour Vite
-const API_BASE_URL = import.meta.env?.VITE_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
-// OU Configuration pour Create React App (si vous utilisez CRA)
-// const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
-
-// OU Configuration simple sans variables d'environnement
-// const API_BASE_URL = 'http://localhost:3001/api';
+// Log pour debug (seulement en développement)
+if (import.meta.env.DEV) {
+  console.log('🔗 API Base URL:', API_BASE_URL);
+  console.log('🌍 Variables Vite disponibles:', import.meta.env);
+}
 
 class ApiService {
   constructor() {

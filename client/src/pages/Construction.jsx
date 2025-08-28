@@ -12,7 +12,7 @@ const Construction = () => {
         <div className="row justify-content-center">
           <div className="col-lg-8 col-md-10 text-center">
 
-            <h1 className="display-3 fw-bold mb-4">
+            <h1 className="display-3 fw-medium mb-4">
               Cette page est en construction
             </h1>
 

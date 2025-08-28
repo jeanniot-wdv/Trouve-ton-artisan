@@ -3,8 +3,3 @@
 .DS_Store
 Thumbs.db
 
-server/.env
-server/.gitignore
-client/.env
-client/.gitignore
-client/.vite/deps/

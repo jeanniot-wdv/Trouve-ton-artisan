@@ -1,17 +1,17 @@
 // assets/styles/main.scss
 
 // Import des variables
-@use './variables' as *;
+@use 'variables' as *;
 
 // Import des composants principaux
-@import './header';
-@import './footer';
-@import './home';
-@import './card-step';
-@import './categories';
-@import './category-artisans';
-@import './artisan';
-@import './artisan-card';
+@use 'header' as header;
+@use 'footer' as footer;
+@use 'home' as home;
+@use 'card-step' as cardStep;
+@use 'categories' as categories;
+@use 'category-artisans' as categoryArtisans;
+@use 'artisan' as artisan;
+@use 'artisan-card' as artisanCard;
 
 // Import des polices
 @font-face {
