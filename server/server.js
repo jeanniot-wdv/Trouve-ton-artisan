@@ -44,58 +44,12 @@ app.use(helmet({
 }));
 
 // Configuration CORS
-// app.use(cors({
-//   origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   credentials: true,
-//   optionsSuccessStatus: 200
-// }));
-
-// Configuration CORS /////////////////////////////////////////////
-const allowedOrigins = [
-  'http://localhost:3000', // Pour le développement
-  'https://trouve-ton-artisan-jv0v.onrender.com' // Pour la production
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Autorise les requêtes sans origin (ex: Postman, curl) ou celles dans allowedOrigins
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-    optionsSuccessStatus: 200
-  })
-);
-
-// Gestion explicite des requêtes OPTIONS pour toutes les routes
-app.options('*', cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
   optionsSuccessStatus: 200
 }));
-
-// Middleware pour forcer les en-têtes CORS
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
-  }
-  next();
-});
-/////////////////////////////////////////////
-
 
 // Middlewares de parsing
 app.use(express.json({ limit: '10mb' }));

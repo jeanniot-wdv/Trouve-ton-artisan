@@ -2,11 +2,11 @@
 -- Trouve ton artisan - Région Auvergne-Rhône-Alpes
 
 -- Création de la base de données
-CREATE DATABASE IF NOT EXISTS trouve_ton_artisan 
+CREATE DATABASE IF NOT EXISTS db_artisan 
 CHARACTER SET utf8mb4 
 COLLATE utf8mb4_unicode_ci;
 
-USE trouve_ton_artisan;
+USE db_artisan;
 
 -- Table des catégories
 CREATE TABLE categories (
@@ -52,7 +52,6 @@ CREATE TABLE artisans (
     FOREIGN KEY (id_specialite) REFERENCES specialites(id_specialite) ON DELETE RESTRICT
 );
 
-
 -- Table des messages de contact
 CREATE TABLE messages_contact (
     id_message INT PRIMARY KEY AUTO_INCREMENT,
@@ -71,7 +70,7 @@ CREATE INDEX idx_specialites_categorie ON specialites(id_categorie);
 CREATE INDEX idx_artisans_specialite ON artisans(id_specialite);
 CREATE INDEX idx_messages_artisan ON messages_contact(id_artisan);
 
--- Index pour les recherches
+-- Index pour les recherches simples
 CREATE INDEX idx_artisans_nom ON artisans(nom);
 CREATE INDEX idx_artisans_ville ON artisans(ville);
 CREATE INDEX idx_artisans_departement ON artisans(departement);
@@ -79,7 +78,15 @@ CREATE INDEX idx_artisans_actif ON artisans(actif);
 CREATE INDEX idx_artisans_du_mois ON artisans(artisan_du_mois);
 CREATE INDEX idx_categories_slug ON categories(slug_categorie);
 
--- Création d'un utilisateur pour l'application (optionnel, pour la sécurité)
--- CREATE USER 'artisan_app'@'localhost' IDENTIFIED BY 'mot_de_passe_securise';
--- GRANT SELECT, INSERT, UPDATE ON trouve_ton_artisan.* TO 'artisan_app'@'localhost';
--- FLUSH PRIVILEGES;
+-- Index composés pour les recherches avancées
+CREATE INDEX idx_artisans_location ON artisans(departement, ville, actif);
+CREATE INDEX idx_artisans_rating ON artisans(note_moyenne DESC, nombre_avis DESC);
+CREATE INDEX idx_artisans_search ON artisans(nom, ville, actif);
+
+-- Création d'un utilisateur pour l'application
+CREATE USER IF NOT EXISTS 'artisan_app'@'localhost' IDENTIFIED BY 'artisans';
+GRANT SELECT, INSERT, UPDATE ON db_artisan.artisans TO 'artisan_app'@'localhost';
+GRANT SELECT, INSERT ON db_artisan.messages_contact TO 'artisan_app'@'localhost';
+GRANT SELECT ON db_artisan.categories TO 'artisan_app'@'localhost';
+GRANT SELECT ON db_artisan.specialites TO 'artisan_app'@'localhost';
+FLUSH PRIVILEGES;
