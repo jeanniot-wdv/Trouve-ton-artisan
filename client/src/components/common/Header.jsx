@@ -32,11 +32,11 @@ const Header = () => {
 
           {/* Navigation */}
           <div className="collapse navbar-collapse justify-content-end" id="navbarContent">
-            <ul className="navbar-nav d-flex gap-3 mb-2 mb-lg-0">
+            <ul className="navbar-nav d-flex gap-3 my-4 mb-lg-0">
               {/* Artisans */}
               <li className="nav-item">
                 <Link 
-                  className={`nav-link rounded-5 fw-medium ${isActive('/artisans')}`}
+                  className={`nav-link rounded-5 fw-medium text-center ${isActive('/artisans')}`}
                   to="/artisans">
                   Artisans
                 </Link>
@@ -45,7 +45,7 @@ const Header = () => {
               {/* Catégories */}
               <li className="nav-item">
                 <Link 
-                  className={`nav-link rounded-5 fw-medium ${isActive('/categories')}`}
+                  className={`nav-link rounded-5 fw-medium text-center ${isActive('/categories')}`}
                   to="/categories">
                   Catégories
                 </Link>
