@@ -32,7 +32,7 @@ const Header = () => {
 
           {/* Navigation */}
           <div className="collapse navbar-collapse justify-content-end" id="navbarContent">
-            <ul className="navbar-nav d-flex gap-3 my-4 mb-lg-0">
+            <ul className="navbar-nav d-flex gap-3 my-4 my-lg-0 mb-lg-0">
               {/* Artisans */}
               <li className="nav-item">
                 <Link 
