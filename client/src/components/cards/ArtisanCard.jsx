@@ -18,7 +18,7 @@ const ArtisanCard = ({ artisan }) => {
   return (
     <div className="col-12 col-md-6 col-lg-4 mb-4 w-100">
       <Link to={`/artisan/${artisan.id_artisan || artisan.id}`} className="text-decoration-none">
-        <div className="card h-100 shadow-sm artisan-card">
+        <div className="bg-white card h-100 shadow-sm artisan-card">
           <div className="card-body text-center p-4">
             {/* Image de profil */}
             <div className="mb-3">

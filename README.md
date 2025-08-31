@@ -98,20 +98,20 @@ git clone https://github.com/jeanniot-wdv/Trouve-ton-artisan.git
 cd Trouve-ton-artisan
 
 # Configuration de la base de données
-mysql -u root -p -e "CREATE DATABASE trouve_ton_artisan;"
-mysql -u root -p trouve_ton_artisan < database/schema.sql
-mysql -u root -p trouve_ton_artisan < database/seeds.sql
+mysql -u root -p -e "CREATE DATABASE db_artisan;"
+mysql -u root -p db_artisan < database/schema.sql
+mysql -u root -p db_artisan < database/seeds.sql
 
 # Installation des dépendances back-end
 cd server
 npm install
 cp .env.example .env  # Configurer les variables d'environnement
-npm start
+npm run dev
 
 # Installation des dépendances front-end (nouveau terminal)
 cd ../client
 npm install
-npm start
+npm run dev
 ```
 
 ##### Variables d'environnement (.env)
@@ -121,33 +121,32 @@ npm start
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=your_password
-DB_NAME=trouve_ton_artisan
+DB_NAME=db_artisan
 
 # Serveur
 PORT=3001
 NODE_ENV=development
 
 # Sécurité
-JWT_SECRET=your_jwt_secret
 CORS_ORIGIN=http://localhost:3000
+
+# Rate limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
 ```
 
 #### 📦 Scripts de développement
 
 **Client (React)**
 ```bash
-npm start          # Mode développement
+npm run dev          # Mode développement
 npm run build      # Build de production
-npm test           # Tests unitaires
-npm run lint       # Vérification du code
 ```
 
 **Serveur (Node.js)**
 ```bash
 npm start          # Lancement du serveur
 npm run dev        # Mode développement (nodemon)
-npm test           # Tests API
-npm run migrate    # Migrations de base de données
 ```
 
 #### 🔒 Sécurité implémentée
@@ -261,20 +260,20 @@ git clone https://github.com/jeanniot-wdv/Trouve-ton-artisan.git
 cd Trouve-ton-artisan
 
 # Database setup
-mysql -u root -p -e "CREATE DATABASE trouve_ton_artisan;"
-mysql -u root -p trouve_ton_artisan < database/schema.sql
-mysql -u root -p trouve_ton_artisan < database/seeds.sql
+mysql -u root -p -e "CREATE DATABASE db_artisan;"
+mysql -u root -p db_artisan < database/schema.sql
+mysql -u root -p db_artisan < database/seeds.sql
 
 # Backend dependencies
 cd server
 npm install
 cp .env.example .env  # Configure environment variables
-npm start
+npm run dev
 
 # Frontend dependencies (new terminal)
 cd ../client
 npm install
-npm start
+npm run dev
 ```
 
 ##### Environment Variables (.env)
@@ -284,33 +283,32 @@ npm start
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=your_password
-DB_NAME=trouve_ton_artisan
+DB_NAME=db_artisan
 
 # Server
 PORT=3001
 NODE_ENV=development
 
 # Security
-JWT_SECRET=your_jwt_secret
 CORS_ORIGIN=http://localhost:3000
+
+# Rate limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
 ```
 
 #### 📦 Development Scripts
 
 **Client (React)**
 ```bash
-npm start          # Development mode
+npm run dev          # Development mode
 npm run build      # Production build
-npm test           # Unit tests
-npm run lint       # Code linting
 ```
 
 **Server (Node.js)**
 ```bash
 npm start          # Start server
 npm run dev        # Development mode (nodemon)
-npm test           # API tests
-npm run migrate    # Database migrations
 ```
 
 #### 🔒 Security Implementation
