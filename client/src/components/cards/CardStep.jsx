@@ -8,7 +8,7 @@ const CardStep = ({
   reverse = false 
 }) => {
   return (
-    <div className="step-card">
+    <div className=" gap-md-5 step-card mb-4">
       <div className={`row step-row ${reverse ? 'flex-row-reverse reverse' : ''}`}>
         <div className="col-md-4">
           <img 

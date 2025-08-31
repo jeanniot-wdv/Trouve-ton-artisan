@@ -61,6 +61,12 @@ h2, h3 {
   background: linear-gradient(135deg, rgba($secondary-blue, 0.9) 0%, rgba($primary-blue, 0.9) 50%, rgba($dark-blue, 0.8) 100%);
   min-height: 350px;
   margin-top: 85px;
+
+  .input-group {
+    @media (max-width: 768px) {
+        width: 100% !important;
+    }
+  }
 }
 
 .hero-full {
