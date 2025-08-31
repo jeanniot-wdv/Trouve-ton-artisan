@@ -88,7 +88,7 @@ const Home = () => {
               stepNumber={1}
               title="Choisir la catégorie d'artisanat dans le menu"
               description="Dans le menu en haut de la page, choisissez la catégorie d'artisanat que vous recherchez afin de pouvoir sélectionner uniquement les artisans spécialisés dans ce domaine."
-              imageSrc="../../src/assets/images/1-categorie.png"
+              imageSrc="/images/1-categorie.png"
               imageAlt="Illustration du choix de catégorie"
               reverse={false}
             />
@@ -96,7 +96,7 @@ const Home = () => {
               stepNumber={2}
               title="Choisir un artisan"
               description="Sélectionnez l'artisan de la liste qui vous a le plus séduit. Référez-vous aux informations de son profil pour faire votre choix (avis, spécialité, localisation)."
-              imageSrc="../../src/assets/images/2-artisan.png"
+              imageSrc="/images/2-artisan.png"
               imageAlt="Illustration du choix d'artisan"
               reverse={true}
             />
@@ -104,7 +104,7 @@ const Home = () => {
               stepNumber={3}
               title="Le contacter via le formulaire de contact"
               description="Cliquez sur l'artisan que vous avez choisi pour avoir des informations supplémentaires sur ce dernier. Contactez-le via le formulaire de contact."
-              imageSrc="../../src/assets/images/3-contact.png"
+              imageSrc="/images/3-contact.png"
               imageAlt="Illustration du formulaire de contact"
               reverse={false}
             />
@@ -112,7 +112,7 @@ const Home = () => {
               stepNumber={4}
               title="Une réponse sera apportée sous 48h"
               description="Une fois votre message envoyé, l'artisan s'engage à vous répondre dans les 48 heures."
-              imageSrc="../../src/assets/images/4-reponse.png"
+              imageSrc="/images/4-reponse.png"
               imageAlt="Illustration de la réponse sous 48h"
               reverse={true}
             />
