@@ -8,9 +8,9 @@
 ![Licence](https://img.shields.io/badge/licence-MIT-blue)
 ![Version Node](https://img.shields.io/badge/node-v18+-green)
 
-[🇫🇷 Français](#français) | [🇬🇧 English](#english)
-
 [🌐 Site | Website](https://trouve-ton-artisan-jv0v.onrender.com)
+
+[🇫🇷 Français](#français) | [🇬🇧 English](#english)
 
 
 ---
