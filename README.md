@@ -10,8 +10,6 @@
 
 [🇫🇷 Français](#français) | [🇬🇧 English](#english)
 
-[🌐 Site | Website](https://trouve-ton-artisan-jv0v.onrender.com)
-
 ---
 
 ## 🇫🇷 Français
@@ -451,8 +449,8 @@ npm run dev        # Development mode (nodemon)
 
 ## 📞 Contact | Support
 
-**Développeur | Developer**: Romain Jeanniot - [romain.jeanniot@example.com](mailto:romain.jeanniot@example.com)  
-**Client**: Région Auvergne-Rhône-Alpes - [contact@auvergnerhonealpes.fr](mailto:contact@auvergnerhonealpes.fr)
+**Développeur | Developer**: Romain Jeanniot
+**Client**: Région Auvergne-Rhône-Alpes
 
 ---
 
