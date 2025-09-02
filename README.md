@@ -153,7 +153,6 @@ npm start          # Lancement du serveur
 npm run dev        # Mode développement (nodemon)
 ```
 
-
 ---
 
 #### 🧪 Tests API
@@ -175,7 +174,7 @@ npm run dev        # Mode développement (nodemon)
 #### 1. Récupérer tous les artisans
 
 ```bash
-curl -X GET http://localhost:3001/api/artisans
+GET http://localhost:3001/api/artisans
 ```
 
 **Réponse attendue :**
@@ -201,19 +200,19 @@ curl -X GET http://localhost:3001/api/artisans
 #### 2. Rechercher un artisan
 
 ```bash
-curl -X GET "http://localhost:3001/api/artisans/search/plombier"
+GET "http://localhost:3001/api/artisans/search/plombier"
 ```
 
 #### 3. Artisans par catégorie
 
 ```bash
-curl -X GET http://localhost:3001/api/artisans/category/1
+GET http://localhost:3001/api/artisans/category/1
 ```
 
 #### 4. Détails d'un artisan
 
 ```bash
-curl -X GET http://localhost:3001/api/artisans/1
+GET http://localhost:3001/api/artisans/1
 ```
 
 **Réponse attendue :**
@@ -245,7 +244,7 @@ curl -X GET http://localhost:3001/api/artisans/1
 #### 5. Envoyer un message de contact
 
 ```bash
-curl -X POST http://localhost:3001/api/contact \
+POST http://localhost:3001/api/contact \
   -H "Content-Type: application/json" \
   -d '{
     "nom": "Jean Dupont",
@@ -259,7 +258,7 @@ curl -X POST http://localhost:3001/api/contact \
 #### 6. Récupérer les catégories
 
 ```bash
-curl -X GET http://localhost:3001/api/categories
+GET http://localhost:3001/api/categories
 ```
 
 #### 🔒 Sécurité implémentée
