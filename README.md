@@ -10,7 +10,7 @@
 
 [🇫🇷 Français](#français) | [🇬🇧 English](#english)
 
-[🌐 Site | Website]([https://www.auvergnerhonealpes.fr](https://trouve-ton-artisan-jv0v.onrender.com))
+[🌐 Site | Website](https://trouve-ton-artisan-jv0v.onrender.com)
 
 
 ---
