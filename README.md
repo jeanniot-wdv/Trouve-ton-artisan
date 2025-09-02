@@ -8,10 +8,7 @@
 ![Licence](https://img.shields.io/badge/licence-MIT-blue)
 ![Version Node](https://img.shields.io/badge/node-v18+-green)
 
-[🌐 Site | Website](https://trouve-ton-artisan-jv0v.onrender.com)
-
 [🇫🇷 Français](#français) | [🇬🇧 English](#english)
-
 
 ---
 
@@ -152,6 +149,115 @@ npm run build      # Build de production
 ```bash
 npm start          # Lancement du serveur
 npm run dev        # Mode développement (nodemon)
+```
+
+
+---
+
+#### 🧪 Tests API
+
+### Endpoints disponibles
+
+| Méthode | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/artisans` | Liste tous les artisans |
+| GET | `/api/artisans/:id` | Détails d'un artisan |
+| GET | `/api/artisans/category/:categoryId` | Artisans par catégorie |
+| GET | `/api/artisans/search/:query` | Recherche d'artisans |
+| GET | `/api/categories` | Liste des catégories |
+| GET | `/api/specialites` | Liste des spécialités |
+| POST | `/api/contact` | Envoi formulaire de contact |
+
+### Exemples de requêtes
+
+#### 1. Récupérer tous les artisans
+
+```bash
+curl -X GET http://localhost:3001/api/artisans
+```
+
+**Réponse attendue :**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id_artisan": 1,
+      "nom": "Dubois Construction",
+      "email": "contact@dubois-construction.fr",
+      "telephone": "04 78 12 34 56",
+      "ville": "Lyon",
+      "note": 4.5,
+      "specialite": {
+        "nom_specialite": "Maçonnerie"
+      }
+    }
+  ]
+}
+```
+
+#### 2. Rechercher un artisan
+
+```bash
+curl -X GET "http://localhost:3001/api/artisans/search/plombier"
+```
+
+#### 3. Artisans par catégorie
+
+```bash
+curl -X GET http://localhost:3001/api/artisans/category/1
+```
+
+#### 4. Détails d'un artisan
+
+```bash
+curl -X GET http://localhost:3001/api/artisans/1
+```
+
+**Réponse attendue :**
+```json
+{
+  "success": true,
+  "data": {
+    "id_artisan": 1,
+    "nom": "Dubois Construction",
+    "email": "contact@dubois-construction.fr",
+    "telephone": "04 78 12 34 56",
+    "adresse": "123 Rue de la République",
+    "ville": "Lyon",
+    "code_postal": "69001",
+    "site_web": "https://dubois-construction.fr",
+    "note": 4.5,
+    "description": "Entreprise spécialisée en maçonnerie...",
+    "image": "dubois.jpg",
+    "specialite": {
+      "nom_specialite": "Maçonnerie",
+      "categorie": {
+        "nom_categorie": "Bâtiment"
+      }
+    }
+  }
+}
+```
+
+#### 5. Envoyer un message de contact
+
+```bash
+curl -X POST http://localhost:3001/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nom": "Jean Dupont",
+    "email": "jean.dupont@email.com",
+    "objet": "Demande de devis",
+    "message": "Bonjour, je souhaiterais un devis pour...",
+    "id_artisan": 1
+  }'
+```
+
+#### 6. Récupérer les catégories
+
+```bash
+curl -X GET http://localhost:3001/api/categories
 ```
 
 #### 🔒 Sécurité implémentée
