@@ -8,6 +8,8 @@
 ![Licence](https://img.shields.io/badge/licence-MIT-blue)
 ![Version Node](https://img.shields.io/badge/node-v18+-green)
 
+[🌐 Site | Website](https://trouve-ton-artisan-jv0v.onrender.com)
+
 [🇫🇷 Français](#français) | [🇬🇧 English](#english)
 
 [🌐 Site | Website](https://trouve-ton-artisan-jv0v.onrender.com)
@@ -70,18 +72,20 @@ Vous êtes artisan en Auvergne-Rhône-Alpes ? Bénéficiez :
 Trouve-ton-artisan/
 ├── client/          # Application React (Front-end)
 │   ├── src/
+│   │   ├── assets/       # Styles SCSS
 │   │   ├── components/   # Composants réutilisables
+│   │   ├── hooks/       # Hooks personnalisés
 │   │   ├── pages/       # Pages principales
-│   │   ├── services/    # Services API
-│   │   └── styles/      # Styles SCSS
+│   │   └── services/    # Services API
 ├── server/          # API Node.js/Express (Back-end)
+│   ├── config/       # Configuration base de données
 │   ├── controllers/     # Contrôleurs API
 │   ├── models/         # Modèles Sequelize
+│   ├── repositories/   # Repositories API
 │   ├── routes/         # Routes API
-│   └── middleware/     # Middlewares de sécurité
+│   ├── middleware/     # Middlewares de sécurité
+│   └── sercices/     # Services API
 ├── database/        # Scripts et schémas SQL
-│   ├── migrations/     # Scripts de migration
-│   └── seeds/         # Données de test
 ├── docs/           # Documentation technique
 └── README.md       # Ce fichier
 ```
